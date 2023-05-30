@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <base href="/login">
+    <title>econoshop-login</title>
+</head>
+<body>
+    <div class="main-titleBox">
+        <button class="main-title" onclick="goNewPage('/')">EconoShop</button>
+    </div>
+    <h1 class="sub-title">로그인</h1>
+    <!-- link -->
+    <div class="private-a-box">
+      <a class="a to-login" onclick="goNewPage('/signup')">회원가입</a>
+      <a class="a to-mypage" onclick="goNewPage('/mypage')">마이페이지</a>
+      <a class="a to-cart" onclick="goNewPage('/cart')">장바구니</a>
+    </div>
+    <!-- login form -->
+  <div class="sign-up-form">
+    <form action="/main" method="post" name="inputForm" onsubmit="return checkValue();">
+      <div class="container">
+        <div class="id box">
+          <input class='input-id'type="text" placeholder="ID*" name="id" maxlength="20">
+          <span class="id-invalid-check"></span>
+        </div>
+        <br>
+        <div class="pw box">
+          <input class='input-pw-login' type="password" placeholder="PASSWORD*" name="psw" maxlength="20">
+          <span></span>
+        </div>
+        <br>
+        <div class="clearfix-login">
+          <a>아이디 찾기</a>
+          <a>비밀번호 찾기</a>
+          <a>회원가입</a>
+          <button type="submit" class="signupbtn">LOG IN</button>
+        </div>
+      </div>
+    </form>
+  </div>
+<script src="/js/signup.js"></script>
+</body>
+</html>
