@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">ㅌ
+    <base href="/">
+    <title>econoshop-signup</title>
+</head>
+<body>
+    <div class="mainTitleBox">
+        <h1 class="mainTitle">ECONOSHOP</h1>
+    </div>
+    <h1>회원가입</h1>
+    <br>
+    <!-- login form -->
+    <form action="/register" method="post">
+        <div class="container">
+          <div class="id box">
+            <label for="id"><b>ID*</b></label><br>
+            <input type="text" placeholder="Enter ID" name="id" required>
+          </div>
+          <br>
+          <div class="pw box">
+            <label for="psw"><b>PASSWORD*</b></label><br>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+          </div>
+          <label for="psw-repeat"><b>PASSWORD*</b></label><br>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          <br>
+          <label for="email"><b>EMAIL*</b></label><br>
+          <input type="text" placeholder="Enter Email" name="email" required>
+          <br>
+          <label for="email"><b>SEMESTER*</b></label><br>
+          <input type="text" placeholder="Enter Semester" name="" required>
+          <div class="clearfix">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <button type="submit" class="signupbtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+</body>
+</html>
