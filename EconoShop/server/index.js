@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const bodyParser = require("body-parser");
 
 app.set("view engine", "ejs"); // 템플릿 엔진 설정
 app.set("views", path.join(__dirname, "views")); // 템플릿 파일이 위치한 폴더 경로 설정
@@ -32,6 +33,5 @@ app.get("/", function (req, res, next) {
   }
 });
 */
-
 app.listen(3000);
 console.log("Server is listening on port 3000");

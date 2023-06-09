@@ -1,8 +1,13 @@
+body {
+    margin-bottom: 50rem;
+}
+
 form {
     color: gray;
     position: absolute;
     top: 40%;
 }
+
 
 a {
     padding-right: 1rem;
@@ -10,6 +15,16 @@ a {
 }
 
 a:visited {
+    color: gray; 
+    text-decoration: none;
+}
+
+a:link {
+    color: gray; 
+    text-decoration: none;
+}
+
+a:active {
     color: gray; 
     text-decoration: none;
 }
@@ -23,6 +38,13 @@ input {
     margin: 1rem;
     border: none;
     border-bottom: 0.1rem solid gray;
+    transition: 0.1s;
+}
+
+.input-alert {
+    margin: 1rem;
+    border: none;
+    border-bottom: 0.1rem solid red;
     transition: 0.1s;
 }
 
@@ -41,17 +63,41 @@ button {
     appearance: none;
 }
 
-span {
-    display: inline-block;
-}
-
-.input-id{
+.input-id {
     font-size: 1.2rem;
     width: 34rem;
     margin: 1rem;
 }
 
+span {
+    visibility: hidden;
+    color: red;
+    margin-left: 1.2rem;
+}
+
+.invalid-visible {
+    visibility: visible;
+}
+
+.input-email {
+    font-size: 1.2rem;
+    width: 34rem;
+    margin: 1rem;
+}
+
+.input-semester {
+    font-size: 1.2rem;
+    width: 34rem;
+    margin: 1rem;
+}
+  
 .input-pw {
+    font-size: 1.2rem;
+    width: 16rem;
+    margin: 1rem;
+}
+
+.input-pwrepeat {
     font-size: 1.2rem;
     width: 16rem;
     margin: 1rem;
@@ -61,6 +107,15 @@ span {
     font-size: 1.2rem;
     width: 34rem;
     margin: 1rem;
+}
+
+
+.pw-container {
+    display: flex;
+  }
+  
+.pw.box, .pwr.box {
+    flex: 1;
 }
 
 .input-span {
@@ -107,6 +162,7 @@ span {
 
 .box {
     display: flex;
+    flex-direction: column;
 }
 
 .signupbtn {
@@ -133,17 +189,17 @@ span {
 }
 
 .clearfix-login {
-    left: 55%;
+    left: 27%;
     position: relative;
-}
-
-.clearfix-login > a {
-    
 }
 
 .private-a-box {
     display: flex;
     justify-content: right;
+    margin-right: 6rem;
 }
 
-
+.id-box {
+    display: flex;
+    flex-direction: column;
+}
