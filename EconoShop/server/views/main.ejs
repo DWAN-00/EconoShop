@@ -1,24 +1,90 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <base href="/">
-    <title>econoshop-main</title>
-</head>
-<body>
-    <div class="main-titleBox">
-        <button class="main-title" onclick="goNewPage('/')">EconoShop</button>
-    </div>
-    <h1 class="sub-title">main</h1>
-    <!-- link -->
-    <div class="private-a-box">
-      <a class="a to-login" onclick="goNewPage('/signup')">회원가입</a>
-      <a class="a to-mypage" onclick="goNewPage('/mypage')">마이페이지</a>
-      <a class="a to-cart" onclick="goNewPage('/cart')">장바구니</a>
-
-<script src="/js/signup.js"></script>
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href = "/css/style-main.css">
+        <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <base href="/">
+        <title>ECONO SHOP</title>
+    </head>
+    <body>
+        <header>Econo Shop</header>
+        <nav class="nav1">
+            <div class="basket">장바구니</div>
+            <div class="line1"></div>
+            <div class="mypage">마이페이지</div>
+            <div class="line2"></div>
+            <a class="login" href="http://localhost:3000/login">로그인</a>
+        </nav>
+        <nav class="nav2">
+            <div class="goods">굿즈</div>
+            <div class="groupbuy">공동구매</div>
+            <div class="fleamarket">플리마켓</div>
+            <div class="event">행사</div>
+        </nav>
+        <section>
+            <div><span class="recommend-block">추천상품</span></div>
+            <div class="event-block"></div>
+            <div id = "product-block">
+                <div class="product-div">
+                    <div>
+                        <img class="product-img" src="/public/img/patrick.jpg">
+                    </div>
+                    <div class="contents">
+                        <span class="name">사과</span>
+                        <span class="price">30,000원</span>
+                    </div>
+                </div>
+                <div class="product-div">
+                    <div>
+                        <img class="product-img" src="/public/img/apple.jpg">
+                    </div>
+                    <div class="contents">
+                        <span class="name">스폰지밥</span>
+                        <span class="price">30,000원</span>
+                    </div>
+                </div>
+                <div class="product-div">
+                    <div>
+                        <img class="product-img" src="/public/img/patrick.jpg">
+                    </div>
+                    <div class="contents">
+                        <span class="name">뚱이</span>
+                        <span class="price">30,000원</span>
+                    </div>
+                </div>
+                <div class="product-div">
+                    <div>
+                        <img class="product-img" src="/public/img/apple.jpg">
+                    </div>
+                    <div class="contents">
+                        <span class="name">사과</span>
+                        <span class="price">30,000원</span>
+                    </div>
+                </div>
+                <div class="product-div">
+                    <div>
+                        <img class="product-img" src="/public/img/spongebob.jpg">
+                    </div>
+                    <div class="contents">
+                        <span class="name">스폰지밥</span>
+                        <span class="price">30,000원</span>
+                    </div>
+                </div>
+                <div class="product-div">
+                    <div>
+                        <img class="product-img" src="/public/img/patrick.jpg">
+                    </div>
+                    <div class="contents">
+                        <span class="name">뚱이</span>
+                        <span class="price">30,000원</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="/js/domain/main.js"></script>
+    </body>
 </html>
