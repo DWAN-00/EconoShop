@@ -94,7 +94,7 @@ header {
     line-height: 24px;
     color: #000000;
 }
-.groupBuy{
+.groupbuy{
     position: absolute;
     width: 70px;
     height: 24px;
@@ -107,7 +107,7 @@ header {
     line-height: 24px;
     color: #000000;
 }
-.fleaMarket{
+.fleamarket{
     position: absolute;
     width: 70px;
     height: 24px;
@@ -137,7 +137,7 @@ header {
     color:#1369ea;
     text-decoration: underline;
 }
-.eventItem {
+.event-block {
     position: absolute;
     width: 1440px;
     height: 486px;
@@ -149,7 +149,7 @@ header {
     background-size: cover;
     background-color: #EDEDED;
 }
-.recommendItem {
+.recommend-block {
     position: absolute;
     width: 111px;
     height: 36px;
@@ -162,7 +162,7 @@ header {
     line-height: 36px;
     color: #000000;
 }
-#productList {
+#product-block {
     position: absolute;
     width: 1260px;
     height: 1028px;
@@ -171,18 +171,28 @@ header {
     display: flex;
     flex-wrap: wrap;
 }
-.productImg {
+.product-img {
     width: 400px; 
     height: 400px; 
     background-color: #EDEDED; 
     margin-right: 20px;
 }
 .contents {
-    display: flex; flex-direction: column; padding: 8px;
+    display: flex; 
+    flex-direction: 
+    column; padding: 8px;
 }
 .name {
-    font-size: 20px; font-weight: 700;
+    font-size: 20px; 
+    font-weight: 700;
 }
 .price {
-    font-size: 14px; color:#424242;
+    font-size: 14px; 
+    color:#424242;
+}
+.btn-wirte{
+    color: #1369ea;
+    border: 1px solid #1369ea;
+    font-size: 20px;
+    font-family: 'Pretendard-Regular';
 }
