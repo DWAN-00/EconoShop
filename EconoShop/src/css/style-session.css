@@ -50,9 +50,6 @@ input {
 
 input:focus {
     outline:none;
-}
-
-input:focus {
     border-bottom: 0.12rem solid rgb(53, 53, 53);
     background-color: aliceblue;
 }

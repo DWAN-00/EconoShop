@@ -5,40 +5,30 @@ const inputEmail = document.querySelector(".input-email");
 const inputSemester = document.querySelector(".input-semester");
 const inputForm = document.querySelector(".input-form");
 //공백검사
+function inputIsEmpty(inputElement, invalideCheckElement) {
+  if (inputElement.value == "") {
+    event.preventDefault();
+    inputElement.classList.add("input-alert");
+    invalideCheckElement.classList.add("invalid-visible");
+  } else if (inputElement.value !== "") {
+    inputElement.classList.remove("input-alert");
+    invalideCheckElement.classList.remove("invalid-visible");
+  }
+}
+
 function inputIdAlert(event) {
   const idInvalidCheck = document.querySelector(".id-invalid-check");
-  if (inputId.value == "") {
-    event.preventDefault();
-    inputId.classList.add("input-alert");
-    idInvalidCheck.classList.add("invalid-visible");
-  } else if (inputId.value !== "") {
-    inputId.classList.remove("input-alert");
-    idInvalidCheck.classList.remove("invalid-visible");
-  }
+  inputIsEmpty(inputId, idInvalidCheck, () => inputId.value === "");
 }
 
 function inputPwAlert(event) {
   const pwInvalidCheck = document.querySelector(".pw-invalid-check");
-  if (inputPw.value == "") {
-    event.preventDefault();
-    inputPw.classList.add("input-alert");
-    pwInvalidCheck.classList.add("invalid-visible");
-  } else if (inputPw.value !== "") {
-    inputPw.classList.remove("input-alert");
-    pwInvalidCheck.classList.remove("invalid-visible");
-  }
+  inputIsEmpty(inputPw, pwInvalidCheck, () => inputPw.value === "");
 }
 
 function inputPwrAlert(event) {
   const pwrInvalidCheck = document.querySelector(".pwr-invalid-check");
-  if (inputPwr.value == "") {
-    event.preventDefault();
-    inputPwr.classList.add("input-alert");
-    pwrInvalidCheck.classList.add("invalid-visible");
-  } else if (inputPwr.value !== "") {
-    inputPwr.classList.remove("input-alert");
-    pwrInvalidCheck.classList.remove("invalid-visible");
-  }
+  inputIsEmpty(inputPwr, pwrInvalidCheck, () => inputPwr.value === "");
 }
 
 function inputEmailAlert(event) {
@@ -63,14 +53,11 @@ function inputSemesterAlert(event) {
   const semesterInvalidCheck = document.querySelector(
     ".semester-invalid-check"
   );
-  if (inputSemester.value == "") {
-    event.preventDefault();
-    inputSemester.classList.add("input-alert");
-    semesterInvalidCheck.classList.add("invalid-visible");
-  } else if (inputSemester.value !== "") {
-    inputSemester.classList.remove("input-alert");
-    semesterInvalidCheck.classList.remove("invalid-visible");
-  }
+  inputIsEmpty(
+    inputSemester,
+    semesterInvalidCheck,
+    () => inputSemester.value === ""
+  );
 }
 
 inputForm.addEventListener("submit", inputIdAlert);
