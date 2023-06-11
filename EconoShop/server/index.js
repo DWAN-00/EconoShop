@@ -30,7 +30,7 @@ app.get("/mypage", (req, res) => {
 });
 
 const uri =
-  "mongodb+srv://admin:ZdKhAASw5N6U.YK@econoshop.tyhsydq.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://admin:<PASSWORD>.YK@econoshop.tyhsydq.mongodb.net/?retryWrites=true&w=majority";
 
 async function connect() {
   try {
