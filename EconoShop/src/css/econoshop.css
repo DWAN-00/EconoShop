@@ -1,14 +1,14 @@
 @font-face {
     font-family: Pretendard-Bold;
-    src: url(../font/Pretendard-Bold.otf);
+    src: url(../../public/font/Pretendard-Bold.otf);
 }
 @font-face {
     font-family: Pretendard-semibold;
-    src: url(../font/Pretendard-SemiBold.otf);
+    src: url(../../public/font/Pretendard-SemiBold.otf);
 }
 @font-face {
     font-family: Pretendard-Regular;
-    src: url(../font/Pretendard-Regular.otf);
+    src: url(../../public/font/Pretendard-Regular.otf);
 }
 header {
     position: absolute;
