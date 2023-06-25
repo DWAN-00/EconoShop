@@ -1,0 +1,207 @@
+@font-face {
+    font-family: Pretendard-Bold;
+    src: url(../font/Pretendard-Bold.otf);
+}
+@font-face {
+    font-family: Pretendard-semibold;
+    src: url(../font/Pretendard-SemiBold.otf);
+}
+@font-face {
+    font-family: Pretendard-Regular;
+    src: url(../font/Pretendard-Regular.otf);
+}
+header {
+    position: absolute;
+    width: 300px;
+    height: 46px;
+    left: 100px;
+    top: 86px;
+    font-family: 'Pretendard-Bold';
+    font-weight: 700;
+    font-size: 46px; 
+    line-height: 56px;
+    color :#1369ea;
+}
+.login{
+    position: absolute;
+    width: 70px;
+    height: 18px;
+    left: 1063px;
+    top: 113px;
+    font-family: 'Pretendard-Regular';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    text-align: center;
+}
+.mypage{
+    position: absolute;
+    width: 70px;
+    height: 18px;
+    left: 1167px;
+    top: 113px;
+    font-family: 'Pretendard-Regular';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    text-align: center;
+}
+.basket{
+    position: absolute;
+    width: 70px;
+    height: 18px;
+    left: 1284px;
+    top: 113px;
+    font-family: 'Pretendard-Regular';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    text-align: center;
+}
+.line1{
+    position: absolute;
+    width: 12px;
+    height: 0px;
+    left: 1140px;
+    top: 122px;
+    border: 0.5px solid #9A9A9A;
+    transform: rotate(90deg);
+    text-align: center;
+}
+.line2{
+    position: absolute;
+    width: 12px;
+    height: 0px;
+    left: 1260px;
+    top: 122px;
+    border: 0.5px solid #9A9A9A;
+    transform: rotate(90deg);
+    text-align: center;
+}
+.goods{
+    position: absolute;
+    width: 35px;
+    height: 24px;
+    left: 100px;
+    top: 196px;
+    font-family: 'Pretendard-Regular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+.groupbuy{
+    position: absolute;
+    width: 70px;
+    height: 24px;
+    left: 209px;
+    top: 196px;
+    font-family: 'Pretendard-Regular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+.fleamarket{
+    position: absolute;
+    width: 70px;
+    height: 24px;
+    left: 364px;
+    top: 196px;
+    font-family: 'Pretendard-Regular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+.event{
+    position: absolute;
+    width: 35px;
+    height: 24px;
+    left: 519px;
+    top: 196px;
+    font-family: 'Pretendard-Regular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+.nav2 div:hover{
+    color:#1369ea;
+    text-decoration: underline;
+}
+.event-block {
+    position: absolute;
+    width: 1440px;
+    height: 486px;
+    left: 0px;
+    top: 254px; 
+    background-image: url("");
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover;
+    background-color: #EDEDED;
+}
+.recommend-block {
+    position: absolute;
+    width: 111px;
+    height: 36px;
+    left: 664px;
+    top: 852px;
+    font-family: 'Pretendard-Regular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
+}
+#product-block {
+    position: absolute;
+    width: 1260px;
+    height: 1028px;
+    left: 100px;
+    top: 922px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-img {
+    width: 400px; 
+    height: 400px; 
+    background-color: #EDEDED; 
+    margin-right: 20px;
+}
+.contents {
+    display: flex; 
+    flex-direction: 
+    column; padding: 8px;
+}
+.name {
+    font-size: 20px; 
+    font-weight: 700;
+}
+.price {
+    font-size: 14px; 
+    color:#424242;
+}
+.btn-write{
+    position:absolute;
+    color: #1369ea;
+    background-color: white;
+    width: 190px;
+    height: 45px;
+    left: 1120px;
+    top: 208px;
+    margin: 15px;
+    border: 1px solid #1369ea;
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: 'Pretendard-Regular';
+    text-align: center;
+}
