@@ -4,6 +4,7 @@ const inputPwr = document.querySelector(".input-pwrepeat");
 const inputEmail = document.querySelector(".input-email");
 const inputSemester = document.querySelector(".input-semester");
 const inputForm = document.querySelector(".input-form");
+
 //공백검사
 function inputIsEmpty(inputElement, invalideCheckElement) {
   if (inputElement.value == "") {
@@ -60,11 +61,27 @@ function inputSemesterAlert(event) {
   );
 }
 
-inputForm.addEventListener("submit", inputIdAlert);
-inputForm.addEventListener("submit", inputPwAlert);
-inputForm.addEventListener("submit", inputPwrAlert);
-inputForm.addEventListener("submit", inputEmailAlert);
-inputForm.addEventListener("submit", inputSemesterAlert);
+inputForm.addEventListener("click", inputIdAlert);
+inputForm.addEventListener("click", inputPwAlert);
+inputForm.addEventListener("click", inputPwrAlert);
+inputForm.addEventListener("click", inputEmailAlert);
+inputForm.addEventListener("click", inputSemesterAlert);
+
+document.querySelector(".signupbtn").addEventListener("click", () => {
+  const id = document.querySelector(".input-id").value;
+  const pw = document.querySelector(".input-pw").value;
+  const email = document.querySelector(".input-email").value;
+  const semester = document.querySelector(".input-semester").value;
+
+  $.ajax({
+    url: "/signup",
+    method: "POST",
+    data: { id: id, pw: pw, email: email, semester: semester },
+  }).done((result) => {
+    console.log(result);
+    console.log(result.message);
+  });
+});
 
 function goNewPage(newHref = "") {
   window.location.href = newHref;

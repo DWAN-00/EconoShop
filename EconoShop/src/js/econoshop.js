@@ -4,25 +4,25 @@ const fleamarket = document.querySelector(".fleamarket");
 const eventbanner = document.querySelector(".event");
 
 function clickGoods() {
-  window.location.href = "econoshop_goods.html";
+  window.location.href = "http://localhost:3000/goods";
 }
 function clickGroupbuy() {
-  window.location.href = "econoshop_groupbuy.html";
+  window.location.href = "http://localhost:3000/groupBuy";
 }
 function clickFleamarket() {
-  window.location.href = "econoshop_fleamarket.html";
+  window.location.href = "http://localhost:3000/fleaMarket";
 }
 function clickEventbanner() {
-  window.location.href = "econoshop_event.html";
+  window.location.href = "http://localhost:3000/event";
 }
 function clickLogin() {
-  window.location.href = "login.ejs";
+  window.location.href = "http://localhost:3000/login";
 }
 function clickMypage() {
-  window.location.href = "mypage.ejs";
+  window.location.href = "http://localhost:3000/mypage";
 }
 function clickBasket() {
-  window.location.href = "";
+  window.location.href = "http://localhost:3000/cart";
 }
 function clickWrite() {
   window.location.href = "";

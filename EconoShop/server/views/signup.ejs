@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="main-titleBox">
-        <button class="main-title" onclick="goNewPage('/')">EconoShop</button>
+        <button class="main-title" onclick="goNewPage('/')">Econo Shop</button>
     </div>
     <h1 class="sub-title">회원가입</h1>
     <!-- link -->
@@ -30,11 +30,11 @@
         <br>
         <div class="pw-container">
           <div class="pw box">
-            <input class='input-pw' type="password" placeholder="PASSWORD*" name="psw" maxlength="20">
+            <input class='input-pw' type="password" placeholder="PASSWORD*" name="pw" maxlength="20">
             <span class="pw-invalid-check">PLEASE ENTER PW</span>
           </div>
           <div class="pwr box">
-            <input class='input-pwrepeat' type="password" placeholder="REPEAT PASSWORD*" name="pswRepeat" maxlength="20">
+            <input class='input-pwrepeat' type="password" placeholder="REPEAT PASSWORD*" name="pwRepeat" maxlength="20">
             <span class="pwr-invalid-check">PLEASE REPEAT PW</span>
           </div>
         </div>
@@ -45,17 +45,18 @@
         </div>
         <br>
         <div class="semster box">
-          <input class='input-semester' type="text" placeholder="SEMESTER*" name="semester" maxlength="20">
+          <input class='input-semester' type="text" placeholder="SEMESTER*" name="semester" maxlength="2">
           <span class="semester-invalid-check">PLEASE ENTER SEMESTER</span>
         </div>
         <br>
         <div class="clearfix">
           <button type="button" class="cancelbtn">Cancel</button>
-          <button type="submit" class="signupbtn">SIGN UP</button>
+          <button type="button" class="signupbtn">SIGN UP</button>
         </div>
       </div>
     </form>
   </div>
 <script src="/js/domain/signup.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
