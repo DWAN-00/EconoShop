@@ -1,4 +1,9 @@
+const express = require("express");
 const router = require("express").Router();
+const member = require("./member.js");
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 router.get("/", (req, res) => {
   res.render("main");
@@ -9,29 +14,31 @@ router.get("/signup", (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
-  console.log("in register post");
   let id = req.body.id;
   let pw = req.body.pw;
   let email = req.body.email;
   let semester = req.body.semester;
-
-  // 회원가입 데이터 DB 저장 코드 구현할 곳
-  db.collection("login").insertOne(
-    { id: id, pw: pw, email: email },
-    (error, result) => {
-      res.status(200).send({
-        message:
-          "ajax 통신 성공 - id: " +
-          id +
-          ", pw: " +
-          pw +
-          ", email: " +
-          email +
-          ",semester: " +
-          semseter,
+  const memberPost = new member({
+    id: id,
+    pw: pw,
+    email: email,
+    semester: semester,
+  });
+  memberPost
+    .save()
+    .then(() => {
+      res.status(200).json({
+        success: true,
+        text: "success.",
       });
-    }
-  );
+    })
+    .catch((error) => {
+      console.error("회원 가입 실패:", error);
+      res.status(500).json({
+        success: false,
+        text: "fail",
+      });
+    });
 });
 
 router.get("/login", (req, res) => {

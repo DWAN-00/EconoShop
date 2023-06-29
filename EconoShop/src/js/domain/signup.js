@@ -4,7 +4,9 @@ const inputPwr = document.querySelector(".input-pwrepeat");
 const inputEmail = document.querySelector(".input-email");
 const inputSemester = document.querySelector(".input-semester");
 const inputForm = document.querySelector(".input-form");
-
+function submitForm(event) {
+  event.preventDefault();
+}
 //공백검사
 function inputIsEmpty(inputElement, invalideCheckElement) {
   if (inputElement.value == "") {
@@ -61,13 +63,13 @@ function inputSemesterAlert(event) {
   );
 }
 
-inputForm.addEventListener("click", inputIdAlert);
-inputForm.addEventListener("click", inputPwAlert);
-inputForm.addEventListener("click", inputPwrAlert);
-inputForm.addEventListener("click", inputEmailAlert);
-inputForm.addEventListener("click", inputSemesterAlert);
+inputForm.addEventListener("submit", inputIdAlert);
+inputForm.addEventListener("submit", inputPwAlert);
+inputForm.addEventListener("submit", inputPwrAlert);
+inputForm.addEventListener("submit", inputEmailAlert);
+inputForm.addEventListener("submit", inputSemesterAlert);
 
-document.querySelector(".signupbtn").addEventListener("click", () => {
+document.querySelector(".signupbtn").addEventListener("submit", () => {
   const id = document.querySelector(".input-id").value;
   const pw = document.querySelector(".input-pw").value;
   const email = document.querySelector(".input-email").value;
@@ -75,14 +77,19 @@ document.querySelector(".signupbtn").addEventListener("click", () => {
 
   $.ajax({
     url: "/signup",
-    method: "POST",
-    data: { id: id, pw: pw, email: email, semester: semester },
-  }).done((result) => {
-    console.log(result);
-    console.log(result.message);
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify({
+      id: id,
+      pw: pw,
+      email: email,
+      semester: semester,
+    }),
+    success: function (response) {
+      // 성공적으로 요청이 완료된 후의 동작
+    },
+    error: function (error) {
+      // 요청이 실패한 경우의 동작
+    },
   });
 });
-
-function goNewPage(newHref = "") {
-  window.location.href = newHref;
-}
