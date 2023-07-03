@@ -4,9 +4,7 @@ const inputPwr = document.querySelector(".input-pwrepeat");
 const inputEmail = document.querySelector(".input-email");
 const inputSemester = document.querySelector(".input-semester");
 const inputForm = document.querySelector(".input-form");
-function submitForm(event) {
-  event.preventDefault();
-}
+
 //공백검사
 function inputIsEmpty(inputElement, invalideCheckElement) {
   if (inputElement.value == "") {
@@ -69,7 +67,7 @@ inputForm.addEventListener("submit", inputPwrAlert);
 inputForm.addEventListener("submit", inputEmailAlert);
 inputForm.addEventListener("submit", inputSemesterAlert);
 
-document.querySelector(".signupbtn").addEventListener("submit", () => {
+inputForm.addEventListener("submit", () => {
   const id = document.querySelector(".input-id").value;
   const pw = document.querySelector(".input-pw").value;
   const email = document.querySelector(".input-email").value;
@@ -77,19 +75,21 @@ document.querySelector(".signupbtn").addEventListener("submit", () => {
 
   $.ajax({
     url: "/signup",
-    type: "POST",
+    method: "POST",
     contentType: "application/json",
     data: JSON.stringify({
       id: id,
       pw: pw,
+      pwr: pwr,
       email: email,
       semester: semester,
     }),
-    success: function (response) {
-      // 성공적으로 요청이 완료된 후의 동작
-    },
-    error: function (error) {
-      // 요청이 실패한 경우의 동작
-    },
+  }).done((result) => {
+    if (result.code == 1) {
+      alert(id + " 님 환영합니다!");
+      location.href = "/login";
+    } else {
+      alert("이미 가입된 아이디입니다.");
+    }
   });
 });

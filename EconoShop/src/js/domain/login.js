@@ -1,33 +1,56 @@
-const inputId = document.querySelector(".input-id");
-const inputPw = document.querySelector(".input-pw-login");
+const id = document.querySelector(".input-id");
+const pw = document.querySelector(".input-pw-login");
 
-function inputIdAlert(event) {
+function idAlert(event) {
   const idInvalidCheck = document.querySelector(".id-invalid-check");
-  if (inputId.value == "") {
+  if (id.value == "") {
     event.preventDefault();
-    inputId.classList.add("input-alert");
+    id.classList.add("input-alert");
     idInvalidCheck.classList.add("invalid-visible");
-  } else if (inputId.value !== "") {
-    inputId.classList.remove("input-alert");
+  } else if (id.value !== "") {
+    id.classList.remove("input-alert");
     idInvalidCheck.classList.remove("invalid-visible");
   }
 }
 
-function inputPwAlert(event) {
+function pwAlert(event) {
   const pwInvalidCheck = document.querySelector(".pw-invalid-check");
-  if (inputPw.value == "") {
+  if (pw.value == "") {
     event.preventDefault();
-    inputPw.classList.add("input-alert");
+    pw.classList.add("input-alert");
     pwInvalidCheck.classList.add("invalid-visible");
-  } else if (inputPw.value !== "") {
-    inputPw.classList.remove("input-alert");
+  } else if (pw.value !== "") {
+    pw.classList.remove("input-alert");
     pwInvalidCheck.classList.remove("invalid-visible");
   }
 }
 
-inputForm.addEventListener("submit", inputIdAlert);
-inputForm.addEventListener("submit", inputPwAlert);
+inputForm.addEventListener("submit", idAlert);
+inputForm.addEventListener("submit", pwAlert);
 
 function goNewPage(newHref = "") {
   window.location.href = newHref;
 }
+
+document.querySelector(".signupbtn").addEventListener("submit", () => {
+  const id = document.querySelector(".input-id").value;
+  const pw = document.querySelector(".input-pw").value;
+
+  $.ajax({
+    url: "/login",
+    type: "POST",
+    contentType: "application/x-www-form-urlencoded",
+    data: JSON.stringify({
+      id: id,
+      pw: pw,
+    }),
+  }).done((result) => {
+    if (result.code == 1) {
+      alert(id + " 님 로그인성공!");
+      location.href = "/mypage";
+    } else {
+      alert("아이디, 비밀번호 확인하셈");
+      location.href = "/login";
+    }
+  });
+});

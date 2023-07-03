@@ -1,9 +1,70 @@
 const express = require("express");
-const router = require("express").Router();
+const router = express.Router();
 const member = require("./member.js");
-const app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcrypt");
+
+function loginCheck(req, res, next) {
+  if (req.member) {
+    next();
+  } else {
+    res.send('로그인안하셨는데요? <a href="/login">로그인</a>');
+  }
+}
+
+router.use(session({ secret: "TMC", resave: true, saveUninitialized: true }));
+router.use(passport.initialize());
+router.use(passport.session());
+
+passport.serializeUser((member, done) => {
+  done(null, member.id);
+});
+
+passport.deserializeUser((id, done) => {
+  member.findOne({ id: id }, (error, result) => {
+    if (error) {
+      return done(error);
+    }
+    done(null, result);
+  });
+});
+
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: "id",
+      passwordField: "pw",
+      session: true,
+    },
+    (input_id, input_pw, done) => {
+      member
+        .findOne({ id: input_id })
+        .then((foundMember) => {
+          if (!foundMember) {
+            console.log("로그인 실패");
+            return done(null, false, { message: "존재하지 않는 아이디" });
+          }
+          bcrypt
+            .compare(input_pw, foundMember.pw)
+            .then((result) => {
+              if (result) {
+                console.log("로그인 성공");
+                return done(null, foundMember);
+              } else {
+                console.log("로그인 실패: 비밀번호 불일치");
+                return done(null, false, {
+                  message: "비밀번호가 일치하지 않습니다.",
+                });
+              }
+            })
+            .catch((error) => done(error));
+        })
+        .catch((error) => done(error));
+    }
+  )
+);
 
 router.get("/", (req, res) => {
   res.render("main");
@@ -16,29 +77,45 @@ router.get("/signup", (req, res) => {
 router.post("/signup", (req, res) => {
   let id = req.body.id;
   let pw = req.body.pw;
+  let pwr = req.body.pwr;
   let email = req.body.email;
   let semester = req.body.semester;
   const memberPost = new member({
     id: id,
     pw: pw,
+    pwr: pwr,
     email: email,
     semester: semester,
   });
   memberPost
     .save()
     .then(() => {
-      res.status(200).json({
-        success: true,
-        text: "success.",
-      });
+      res.render("login");
     })
     .catch((error) => {
       console.error("회원 가입 실패:", error);
-      res.status(500).json({
-        success: false,
-        text: "fail",
+      res.send({
+        code: 0,
       });
     });
+});
+
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    failureRedirect: "/loginFail",
+  }),
+  (req, res) => {
+    res.render("mypage", { userSession: req.member.id });
+  }
+);
+
+router.get("/mypage", loginCheck, (req, res) => {
+  res.render("mypage", { userSession: req.member.id });
+});
+
+router.get("/loginFail", (req, res) => {
+  res.send({ code: 0 });
 });
 
 router.get("/login", (req, res) => {
