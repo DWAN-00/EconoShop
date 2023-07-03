@@ -8,9 +8,8 @@ mongoose.set("strictQuery", false);
 app.set("view engine", "ejs"); // 템플릿 엔진 설정
 app.set("views", path.join(__dirname, "views")); // 템플릿 파일이 위치한 폴더 경로 설정
 app.use(express.static(path.join(__dirname, "../src"))); // 정적 파일 제공 설정
-app.use(express.json({ extended: false }));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", require("./route.js"));
 require("dotenv").config({ path: path.join(__dirname, "db.env") });
 

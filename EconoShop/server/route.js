@@ -4,6 +4,7 @@ const member = require("./member.js");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const ejs = require("ejs");
 const bcrypt = require("bcrypt");
 
 function loginCheck(req, res, next) {
@@ -106,12 +107,12 @@ router.post(
     failureRedirect: "/loginFail",
   }),
   (req, res) => {
-    res.render("mypage", { userSession: req.member.id });
+    res.render("mypage.ejs", { userSession: req.member });
   }
 );
 
 router.get("/mypage", loginCheck, (req, res) => {
-  res.render("mypage", { userSession: req.member.id });
+  res.render("mypage.ejs", { userSession: req.member });
 });
 
 router.get("/loginFail", (req, res) => {

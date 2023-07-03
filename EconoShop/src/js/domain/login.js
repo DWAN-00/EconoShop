@@ -39,7 +39,7 @@ document.querySelector(".signupbtn").addEventListener("submit", () => {
   $.ajax({
     url: "/login",
     type: "POST",
-    contentType: "application/x-www-form-urlencoded",
+    contentType: "application/json",
     data: JSON.stringify({
       id: id,
       pw: pw,

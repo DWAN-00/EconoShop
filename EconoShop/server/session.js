@@ -14,8 +14,14 @@ passport.serializeUser((member, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  member.findOne({ id: id }, (erroror, result) => {
-    done(erroror, result);
+  member.findOne({ id: id }, (error, result) => {
+    if (error) {
+      return done(error);
+    }
+    if (!result) {
+      return done(null, false);
+    }
+    done(null, result);
   });
 });
 
