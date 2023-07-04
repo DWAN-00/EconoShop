@@ -11,7 +11,7 @@ function loginCheck(req, res, next) {
   if (req.member) {
     next();
   } else {
-    res.send('로그인안하셨는데요? <a href="/login">로그인</a>');
+    res.send('로그인 하세요 <a href="/login">로그인</a>');
   }
 }
 
@@ -107,12 +107,12 @@ router.post(
     failureRedirect: "/loginFail",
   }),
   (req, res) => {
-    res.render("mypage.ejs", { userSession: req.member });
+    res.render("mypage.ejs", { userSession: req.user });
   }
 );
 
 router.get("/mypage", loginCheck, (req, res) => {
-  res.render("mypage.ejs", { userSession: req.member });
+  res.render("mypage.ejs", { userSession: req.user });
 });
 
 router.get("/loginFail", (req, res) => {
