@@ -195,8 +195,9 @@ dist
 
 # .gitignore
 
-.env
-.env.local
+/server/db.env
+*.env
+db.env.local
 .env.production
 .env.development
 

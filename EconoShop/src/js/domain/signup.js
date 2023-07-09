@@ -66,7 +66,7 @@ inputForm.addEventListener("submit", inputPwAlert);
 inputForm.addEventListener("submit", inputPwrAlert);
 inputForm.addEventListener("submit", inputEmailAlert);
 inputForm.addEventListener("submit", inputSemesterAlert);
-
+//비동기 통신 : 나중에 추가
 inputForm.addEventListener("submit", () => {
   const id = document.querySelector(".input-id").value;
   const pw = document.querySelector(".input-pw").value;

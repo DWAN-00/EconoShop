@@ -14,15 +14,11 @@ app.use("/", require("./route.js"));
 require("dotenv").config({ path: path.join(__dirname, "db.env") });
 
 let db;
-
+const db_cluster = process.env.DB_CLUSTER;
 const db_id = process.env.DB_ID;
 const db_pw = process.env.DB_PW;
-const db_url =
-  "mongodb+srv://" +
-  db_id +
-  ":" +
-  db_pw +
-  "@econoshop.szbsp91.mongodb.net/econoshop?retryWrites=true&w=majority";
+const db_address = process.env.DB_ADDRESS;
+const db_url = db_cluster + db_id + db_pw + db_address;
 mongoose
   .connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
