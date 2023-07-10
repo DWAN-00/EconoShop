@@ -9,9 +9,8 @@
     <title>econoshop-mypage</title>
 </head>
 <body>
-<section>
     <div class="main-titleBox">
-        <button class="main-title" href="/">Econo Shop</button>
+        <a class="main-title" href="/">Econo Shop</a>
     </div>
     <h1 class="sub-title">마이페이지</h1>
     <!-- link -->
@@ -31,32 +30,9 @@
                 <a class="history-a">주문내역</a>
             </div>
         </div>
-        <form action="/mypage" class="user-info" method="post">
-            <div class="user-s id">
-                <h2><%= userSession.id %></h2><h4 class="user-semester">에코노베이션 <%= userSession.semester %>기</h4>
-            </div>
-            <div class="user-s email">
-                <p><%= userSession.email %></p>
-                <span class="user-border"></span>
-            </div>
-            <div class="user-s input-current-pw">
-                <input type="password" placeholder="CURRENT PASSWORD" maxlength="20" name="currentPw"></input>
-                <span class="user-border"></span>
-            </div>
-            <div class="user-s input-new-pw">
-                <input type="password" placeholder="NEW PASSWORD" maxlength="20" name="newPw"></input>
-                <span class="user-border"></span>
-            </div>
-            <div class="user-s input-new-pwr">
-                <input type="password" placeholder="NEW PASSWORD" maxlength="20" name="newPwr"></input>
-                <span class="user-border"></span>
-            </div>
-            <div class="info-modify">
-                <button type="reset" class="cancel-btn">취소</button>
-                <button type="submit" class="modify-btn">수정</button>
-            </div>
-        </form>
-</section>
+    <%- include ('myInfo')%>
+    <%- include ('myCart')%>
+    <%- include ('myHistory')%>
 <script src="js/domain/mypage.js"></script>
 </body>
 </html>

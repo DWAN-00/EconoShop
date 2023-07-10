@@ -17,10 +17,10 @@ require("dotenv").config({ path: path.join(__dirname, "db.env") });
 const db_secret = process.env.DB_SECRET;
 
 function loginCheck(req, res, next) {
-  if (req.member) {
+  if (req.user) {
     next();
   } else {
-    res.render("/login");
+    res.redirect("/login");
   }
 }
 
@@ -84,7 +84,7 @@ passport.use(
 );
 
 router.get("/", (req, res) => {
-  res.render("main");
+  res.render("main", { userSession: req.user });
 });
 
 router.get("/signup", (req, res) => {
@@ -128,11 +128,11 @@ router.post(
 );
 
 router.get("/mypage", loginCheck, (req, res) => {
-  res.render("mypage", { userSession: req.user });
+  res.render("/mypage", { userSession: req.user });
 });
 
 router.get("/loginFail", (req, res) => {
-  res.send({ code: 0 });
+  res.redirect("/login");
 });
 
 router.get("/login", (req, res) => {
@@ -143,7 +143,7 @@ router.get("/logout", (req, res) => {
   req.logout(() => {
     req.session.destroy(function (err) {
       if (err) throw err;
-      res.clearCookie("connect.sid");
+      res.clearCookie("connect.sid", { path: "/" });
       res.redirect("/login");
     });
   });
