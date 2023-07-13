@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href = "/css/upload.css">
+    <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <base href="/upload">
+    <title>econoshop-upload</title>
+</head>
+<body>
+    <div class="main-titleBox">
+        <a class="main-title" href="/">Econo Shop</a>
+    </div>
+    <nav class="nav2">
+        <a class="goods" href="/goods">굿즈</a>
+        <a class="groupbuy" href="/groupBuy">공동구매</a>
+        <a class="fleamarket" href="/fleaMarket">플리마켓</a>
+        <a class="event" href="/event">행사</a>
+    </nav>
+    <div class="upload-box">
+        <form action="/board" class="upload-form" method="post" enctype="multipart/form-data">
+            <div>
+                <input type="text" id="title" name="title" placeholder="제목" required>
+            </div>
+            <div>
+                <label for="content"></label>
+                <textarea id="content" name="content" required></textarea>
+            </div>
+            <div>
+                <label for="image">이미지:</label>
+                <input type="file" id="image" name="img" multiple accept="image/*">
+            </div>
+            <button type="submit">작성</button>
+        </form>
+    </div>
+    <script src="../../src/js/econoshop.js"></script>
+</body>
+</html>

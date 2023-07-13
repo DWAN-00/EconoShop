@@ -1,0 +1,74 @@
+body {
+    margin-bottom: 50rem;
+}
+
+form {
+    color: gray;
+    position: absolute;
+    top: 20%;
+}
+
+
+a {
+    padding-right: 1rem;
+    cursor: pointer;
+}
+
+a:visited {
+    color: gray; 
+    text-decoration: none;
+}
+
+a:link {
+    color: gray; 
+    text-decoration: none;
+}
+
+a:active {
+    color: gray; 
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+input {
+    margin: 1rem;
+    border: none;
+    border-bottom: 0.1rem solid gray;
+    transition: 0.1s;
+}
+
+.main-titleBox {
+    top: 0%;
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    justify-content: left;
+}
+
+.main-titleBox > .main-title {
+    background: none;
+    border: none;
+    top: 4rem;
+    left: 5rem;
+    color: #0066ff;
+    font-size: 2.5rem;
+    font-weight: 800;
+    position: relative;
+    cursor: pointer;
+}
+
+.upload-box {
+    display: flex;
+    justify-content: center;
+        border: 0.1rem solid gray;
+    border-radius: 0.8rem;
+}
+
+.upload-form {
+    padding: 15rem;
+}
