@@ -1,148 +1,148 @@
 @font-face {
     font-family: Pretendard-Bold;
-    src: url(../../public/font/Pretendard-Bold.otf);
+    src: url(../font/Pretendard-Bold.otf);
 }
 @font-face {
     font-family: Pretendard-semibold;
-    src: url(../../public/font/Pretendard-SemiBold.otf);
+    src: url(../font/Pretendard-SemiBold.otf);
 }
 @font-face {
     font-family: Pretendard-Regular;
-    src: url(../../public/font/Pretendard-Regular.otf);
+    src: url(../font/Pretendard-Regular.otf);
 }
-header {
+header{
     position: absolute;
-    width: 300px;
-    height: 46px;
-    left: 100px;
-    top: 86px;
+    width: 18.75rem;
+    height: 2.875rem;
+    left: 6.25rem;
+    top: 5.375rem;
     font-family: 'Pretendard-Bold';
     font-weight: 700;
-    font-size: 46px; 
-    line-height: 56px;
+    font-size: 2.875rem; 
+    line-height: 3.5rem;
     color :#1369ea;
 }
 .login{
     position: absolute;
-    width: 70px;
-    height: 18px;
-    left: 1063px;
-    top: 113px;
+    width: 4.375rem;
+    height: 1.125rem;
+    left: 66.4375rem;
+    top: 7.0625rem;
     font-family: 'Pretendard-Regular';
     font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 0.9375rem;
+    line-height: 1.125rem;
     color: #000000;
     text-align: center;
 }
 .mypage{
     position: absolute;
-    width: 70px;
-    height: 18px;
-    left: 1167px;
-    top: 113px;
+    width: 4.375rem;
+    height: 1.125rem;
+    left: 72.9375rem;
+    top: 7.0625rem;
     font-family: 'Pretendard-Regular';
     font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 0.9375rem;
+    line-height: 1.125rem;
     color: #000000;
     text-align: center;
 }
 .basket{
     position: absolute;
-    width: 70px;
-    height: 18px;
-    left: 1284px;
-    top: 113px;
+    width: 4.375rem;
+    height: 1.125rem;
+    left: 80.25rem;
+    top: 7.0625rem;
     font-family: 'Pretendard-Regular';
     font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 0.9375rem;
+    line-height: 1.125rem;
     color: #000000;
     text-align: center;
 }
 .line1{
     position: absolute;
-    width: 12px;
-    height: 0px;
-    left: 1140px;
-    top: 122px;
-    border: 0.5px solid #9A9A9A;
+    width: 0.75rem;
+    height: 0rem;
+    left: 71.25rem;
+    top: 7.625rem;
+    border: 0.0312rem solid #9A9A9A;
     transform: rotate(90deg);
     text-align: center;
 }
 .line2{
     position: absolute;
-    width: 12px;
+    width: 0.75rem;
     height: 0px;
-    left: 1260px;
-    top: 122px;
-    border: 0.5px solid #9A9A9A;
+    left: 78.75rem;
+    top: 7.625rem;
+    border: 0.0312rem solid #9A9A9A;
     transform: rotate(90deg);
     text-align: center;
 }
 .goods{
     position: absolute;
-    width: 35px;
-    height: 24px;
-    left: 100px;
-    top: 196px;
+    width: 2.1875rem;
+    height: 1.5rem;
+    left: 6.25rem;
+    top: 12.25rem;
     font-family: 'Pretendard-Regular';
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
     color: #000000;
 }
 .groupbuy{
     position: absolute;
-    width: 70px;
-    height: 24px;
-    left: 209px;
-    top: 196px;
+    width: 4.375rem;
+    height: 1.5rem;
+    left: 13.0625rem;
+    top: 12.25rem;
     font-family: 'Pretendard-Regular';
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
     color: #000000;
 }
 .fleamarket{
     position: absolute;
-    width: 70px;
-    height: 24px;
-    left: 364px;
-    top: 196px;
+    width: 4.375rem;
+    height: 1.5rem;
+    left: 22.75rem;
+    top: 12.25rem;
     font-family: 'Pretendard-Regular';
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
     color: #000000;
 }
 .event{
     position: absolute;
-    width: 35px;
-    height: 24px;
-    left: 519px;
-    top: 196px;
+    width: 2.1875rem;
+    height: 1.5rem;
+    left: 32.4375rem;
+    top: 12.25rem;
     font-family: 'Pretendard-Regular';
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
     color: #000000;
 }
-.nav2 div:hover{
+.nav2 a:hover{
     color:#1369ea;
     text-decoration: underline;
 }
 .event-block {
     position: absolute;
-    width: 1440px;
-    height: 486px;
-    left: 0px;
-    top: 254px; 
+    width: 90rem;
+    height: 30.375rem;
+    left: 0rem;
+    top: 15.875rem; 
     background-image: url("");
     background-repeat: no-repeat; 
     background-position: center; 
@@ -151,57 +151,61 @@ header {
 }
 .recommend-block {
     position: absolute;
-    width: 111px;
-    height: 36px;
-    left: 664px;
-    top: 852px;
+    width: 6.9375rem;
+    height: 2.25rem;
+    left: 41.5rem;
+    top: 53.25rem;
     font-family: 'Pretendard-Regular';
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
     color: #000000;
 }
 #product-block {
     position: absolute;
-    width: 1260px;
-    height: 1028px;
-    left: 100px;
-    top: 922px;
+    width: 78.75rem;
+    height: 64.25rem;
+    left: 6.25rem;
+    top: 57.625rem;
     display: flex;
     flex-wrap: wrap;
 }
 .product-img {
-    width: 400px; 
-    height: 400px; 
+    width: 25rem; 
+    height: 25rem; 
     background-color: #EDEDED; 
-    margin-right: 20px;
+    margin-right: 1.25rem;
 }
 .contents {
     display: flex; 
     flex-direction: 
-    column; padding: 8px;
+    column; padding: 0.5rem;
 }
 .name {
-    font-size: 20px; 
+    font-size: 1.25rem; 
     font-weight: 700;
 }
 .price {
-    font-size: 14px; 
+    font-size: 0.875rem; 
     color:#424242;
 }
 .btn-write{
     position:absolute;
     color: #1369ea;
     background-color: white;
-    width: 190px;
-    height: 45px;
-    left: 1120px;
-    top: 208px;
-    margin: 15px;
-    border: 1px solid #1369ea;
-    border-radius: 20px;
-    font-size: 15px;
+    width: 11.875rem;
+    height: 2.8125rem;
+    left: 70rem;
+    top: 13rem;
+    margin: 0.9375rem;
+    border: 0.0625rem solid #1369ea;
+    border-radius: 1.25rem;
+    font-size: 0.9375rem;
     font-family: 'Pretendard-Regular';
     text-align: center;
+}
+.box-write{
+    position:absolute;
+    left: 40em;
 }
