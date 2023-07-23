@@ -1,0 +1,410 @@
+@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
+
+header{
+    position: absolute;
+    width: 18.75rem;
+    height: 2.875rem;
+    left: 6.25rem;
+    top: 5.375rem;
+    font-family: 'Pretendard';
+    font-weight: 700;
+    font-size: 2.875rem; 
+    line-height: 3.5rem;
+    color :#1369ea;
+}
+
+.login{
+    position: absolute;
+    width: 4.375rem;
+    height: 1.125rem;
+    left: 66.4375rem;
+    top: 7.0625rem;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.125rem;
+    color: #000000;
+    text-align: center;
+}
+
+.mypage{
+    position: absolute;
+    width: 4.375rem;
+    height: 1.125rem;
+    left: 72.9375rem;
+    top: 7.0625rem;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.125rem;
+    color: #000000;
+    text-align: center;
+}
+
+.basket{
+    position: absolute;
+    width: 4.375rem;
+    height: 1.125rem;
+    left: 80.25rem;
+    top: 7.0625rem;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.125rem;
+    color: #000000;
+    text-align: center;
+}
+
+.line1{
+    position: absolute;
+    width: 0.75rem;
+    height: 0rem;
+    left: 71.25rem;
+    top: 7.625rem;
+    border: 0.0312rem solid #9A9A9A;
+    transform: rotate(90deg);
+    text-align: center;
+}
+
+.line2{
+    position: absolute;
+    width: 0.75rem;
+    height: 0px;
+    left: 78.75rem;
+    top: 7.625rem;
+    border: 0.0312rem solid #9A9A9A;
+    transform: rotate(90deg);
+    text-align: center;
+}
+
+.goods{
+    position: absolute;
+    width: 2.1875rem;
+    height: 1.5rem;
+    left: 6.25rem;
+    top: 12.25rem;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: #000000;
+}
+
+.groupbuy{
+    position: absolute;
+    width: 4.375rem;
+    height: 1.5rem;
+    left: 13.0625rem;
+    top: 12.25rem;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: #000000;
+}
+
+.fleamarket{
+    position: absolute;
+    width: 4.375rem;
+    height: 1.5rem;
+    left: 22.75rem;
+    top: 12.25rem;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: #000000;
+}
+
+.event{
+    position: absolute;
+    width: 2.1875rem;
+    height: 1.5rem;
+    left: 32.4375rem;
+    top: 12.25rem;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: #000000;
+}
+
+.nav2 a:hover{
+    color:#1369ea;
+    text-decoration: underline;
+}
+
+.event-block {
+    position: absolute;
+    width: 90rem;
+    left: 0rem;
+    top: 15.875rem; 
+    background-image: url("");
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover;
+    background-color: #EDEDED;
+}
+
+.recommend-block {
+    position: absolute;
+    width: 6.9375rem;
+    height: 2.25rem;
+    left: 41.5rem;
+    top: 53.25rem;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    color: #000000;
+}
+
+#product-block {
+    position: absolute;
+    width: 79rem;
+    height: 64.25rem;
+    left: 6.25rem;
+    top: 57.625rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+}
+.product-img {
+    width: 25rem; 
+    height: 25rem; 
+    background-color: #EDEDED; 
+    margin-right: 1.25rem;
+}
+
+.contents {
+    display: flex; 
+    flex-direction: column; 
+    padding: 0.5rem;
+}
+
+.name a {
+    font-size: 1.25rem; 
+    font-weight: 700;
+    color:#000000;
+    text-decoration: none;
+}
+.price a {
+    font-size: 0.875rem; 
+    color:#424242;
+    text-decoration: none;
+}
+.btn-write {
+    position:absolute;
+    color: #1369ea;
+    background-color: white;
+    width: 11.875rem;
+    height: 2.8125rem;
+    left: 70rem;
+    top: 13rem;
+    margin: 0.9375rem;
+    border: 0.0625rem solid #1369ea;
+    border-radius: 1.25rem;
+    font-size: 1rem;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.post-title {
+    position: absolute;
+    left: 10rem;
+    top: 20rem;
+    width: 67rem;
+    height: 3rem;
+    text-indent: 3rem;
+    font-size: 1.5rem;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    border-radius: 1rem;
+    border: 0.08rem solid #8b8b8b;
+}
+
+.post-title::placeholder {
+    color: #787878; 
+    font-size: medium;
+  }
+
+.post-price {
+    position: absolute;
+    left: 10rem;
+    top: 24rem;
+    width: 67rem;
+    height: 2rem;
+    text-indent: 3rem;
+    font-size: middle;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    color: #1369ea;
+    border-radius: 0.75rem;
+    border: 0.08rem solid #8b8b8b;
+}
+
+.post-price::placeholder {
+    color: #1369ea86; 
+    font-size: small;
+  }
+
+.post-description {
+    position: absolute;
+    left: 10rem;
+    top: 27rem;
+    width: 67rem;
+    height: 40rem;
+    text-indent: 3rem;
+    font-size: 1.2rem;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    border-radius: 1.25rem;
+    border: 0.08rem solid #8b8b8b;
+    padding-top: 1rem;
+}
+
+.post-description::placeholder {
+    color: #787878; 
+    font-size: medium;
+  }
+
+.post-button {
+    position: absolute;
+    top: 69rem;
+    left: 67rem;
+    color: white;
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 1.15rem;
+    background-color: #1369ea;
+    width: 10rem;
+    height: 2.8125rem;
+    border-radius: 1rem;
+    border: 0.08rem solid #1369ea;
+}
+
+.post-button:hover {
+    color: #1369ea;
+    background-color: white;
+}
+
+.view-title {
+    position: absolute;
+    left: 10rem;
+    top: 20rem;
+    width: 67rem;
+    max-height: 4rem;
+    text-indent: 3rem;
+    font-size: 3rem;
+    font-family: 'Pretendard';
+    font-weight: 600;
+}
+
+.view-price {
+    position: absolute;
+    left: 10rem;
+    top: 27rem;
+    max-height: 2rem;
+    text-indent: 3rem;
+    font-size: 1.5rem;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    color: #1369ea;
+    text-decoration: underline;
+}
+
+.view-description {
+    position: absolute;
+    left: 10rem;
+    top: 30rem;
+    width: 67rem;
+    height: 40rem;
+    max-width: 67rem;
+    max-height: 40rem;
+    overflow-y: auto;
+    text-indent: 3rem;
+    font-size: 2rem;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    color: #424242;
+    border: 0.08rem solid #8b8b8b;
+}
+
+.update-button{
+    position: absolute;
+    left: 56rem;
+    top: 73rem;
+    color: white;
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 1.15rem;
+    background-color: #1369ea;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.8125rem;
+    border-radius: 1rem;
+    border: 0.08rem solid #1369ea;
+    text-decoration: none;
+}
+
+.update-button:hover {
+    color: #1369ea;
+    background-color: white;
+}
+
+.delete-button {
+    position: absolute;
+    left: 67rem;
+    top: 73rem;
+    color: white;
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 1.15rem;
+    background-color: #1369ea;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.8125rem;
+    border-radius: 1rem;
+    border: 0.08rem solid #1369ea;
+}
+
+.delete-button:hover {
+    color: #1369ea;
+    background-color: white;
+}
+
+.view-button {
+    position: absolute;
+    left: 10rem;
+    top: 73rem;
+    color: #1369ea;
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 1.15rem;
+    background-color: white;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.8125rem;
+    border-radius: 1rem;
+    border: 0.08rem solid #1369ea;
+    text-decoration: none;
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "title": "우산 팔아요",
+    "price": "5000원",
+    "description": "튼튼해요"
+  },
+  {
+    "title": "가위",
+    "price": "1000원",
+    "description": "조심!"
+  },
+  {
+    "title": "필통",
+    "price": "5000원",
+    "description": "귀여운 필통"
+  },
+  {
+    "title": "장화",
+    "price": "10000원",
+    "description": "상태 좋아요!!"
+  },
+  {
+    "title": "연필",
+    "price": "100원",
+    "description": "귀여워요"
+  }
+]
