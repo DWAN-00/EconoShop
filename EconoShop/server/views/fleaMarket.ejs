@@ -8,9 +8,9 @@
 <body>
     <header>Econo Shop</header>
     <nav class="nav1">
-        <div class="basket">장바구니</div>
+        <a class="basket" href="/cart">장바구니</a>
         <div class="line1"></div>
-        <div class="mypage">마이페이지</div>
+        <a class="mypage" href="/mypage">마이페이지</a>
         <div class="line2"></div>
         <% if (userSession) { %>
             <p class="session-name"><%= userSession.name %> 회원님</p>
@@ -31,7 +31,7 @@
             <% for (const post of posts) { %>
                 <div class="product-container">
                     <div>
-                        <img class="product-img" src="" alt="">
+                        <img class="product-img" src="./uploads/<%= post.imgDateName[0]%>" alt="">
                     </div>
                     <div class="contents">
                         <span class="content-title"><a href="/fleaMarket/?id=<%= encodeURIComponent(post.title) %>"><%= post.title %></a></span>

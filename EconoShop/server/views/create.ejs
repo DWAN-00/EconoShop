@@ -8,11 +8,16 @@
 <body>
     <header>Econo Shop</header>
     <nav class="nav1">
-        <div class="basket">장바구니</div>
+        <a class="basket" href="/cart">장바구니</a>
         <div class="line1"></div>
-        <div class="mypage">마이페이지</div>
+        <a class="mypage" href="/mypage">마이페이지</a>
         <div class="line2"></div>
-        <div class="login">로그아웃</div>
+        <% if (userSession) { %>
+            <p class="session-name"><%= userSession.name %> 회원님</p>
+            <a class="login" href="/logout">로그아웃</a>
+          <% } else { %>
+            <a class="login" href="/login">로그인</a>
+          <% } %>
     </nav>
     <nav class="nav2">
         <div class="goods">굿즈</div>
@@ -22,16 +27,15 @@
     </nav>
     <a class="btn-write" href="/create"> 새 글 작성하기 ></a>
     <section>
-        <form action="/create_process" method="post" enctype="multipart/form-data">
+        <form class="post-form" action="/create_process" method="post" enctype=multipart/form-data>
             <p><input class="post-title" type="text" name="title" placeholder="제목"></p>
             <p><input class="post-price" type="text" name="price" placeholder="가격"></p>
             <p>
-                <textarea class="post-description" name="description" placeholder="상품 설명">
-                </textarea>
+                <textarea class="post-description" name="description" placeholder="상품 설명"></textarea>
             </p>
             <div>
-                <label for="image">이미지:</label>
-                <input type="file" id="image" name="img" multiple accept="image/*">
+                <label class="img-input-label" for="img-input"><img class="img-input-img" src="../img/upload.png"></label>
+                <input type="file" class="img-input" name="img" multiple accept="image/*">
             </div>
             <p>
                 <input class="post-button" type="submit" value="글 등록하기">

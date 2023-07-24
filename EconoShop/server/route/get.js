@@ -10,10 +10,6 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-router.get("/viewpost", (req, res) => {
-  res.render("viewpost"), { title, posts, userSession: req.user };
-});
-
 router.get("/login", (req, res) => {
   res.render("login");
 });

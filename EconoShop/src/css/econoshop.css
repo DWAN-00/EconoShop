@@ -408,3 +408,27 @@ header{
     border: 0.08rem solid #1369ea;
     text-decoration: none;
 }
+
+.img-input {
+    position: relative;
+    width: 7rem;
+    height: 9rem;
+    left: 68rem;
+    top: 27rem;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+.img-input-label {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    left: 71rem;
+    top: 29rem;
+    overflow: hidden;
+}
+
+.img-input-img {
+    position: inherit;
+    width: 2rem;
+}

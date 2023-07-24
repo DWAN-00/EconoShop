@@ -22,10 +22,13 @@ router.get("/fleaMarket", (req, res) => {
           const title = foundPost.title;
           const description = foundPost.description;
           const price = foundPost.price;
+          const imgDateName = foundPost.imgDateName;
+          const firstImage = imgDateName[0];
           res.render("viewpost", {
             title,
             description,
             price,
+            imgDateName: firstImage,
             userSession: req.user,
           });
         } else {
@@ -34,7 +37,6 @@ router.get("/fleaMarket", (req, res) => {
       }
     });
   } else {
-    // queryTitle이 없을 경우, 모든 글을 데이터베이스에서 가져와서 템플릿에 전달합니다.
     board.find({}, (err, data) => {
       if (err) {
         console.error("게시글 조회 오류:", err);
@@ -45,8 +47,13 @@ router.get("/fleaMarket", (req, res) => {
           title: post.title,
           description: post.description,
           price: post.price,
+          imgDateName: post.imgDateName,
         }));
-        res.render("fleaMarket", { title, posts, userSession: req.user });
+        res.render("fleaMarket", {
+          title,
+          posts,
+          userSession: req.user,
+        });
       }
     });
   }
@@ -54,7 +61,7 @@ router.get("/fleaMarket", (req, res) => {
 
 router.get("/create", (req, res) => {
   const title = "Flea Market - 새 글 작성";
-  res.render("create", { title });
+  res.render("create", { title, userSession: req.user });
 });
 
 const upload = multer({
