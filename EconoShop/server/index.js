@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", require("./route/get"));
 app.use("/", require("./route/session"));
-app.use("/", require("./route/imageUpload"));
+app.use("/", require("./route/boardPost"));
 require("dotenv").config({ path: path.join(__dirname, "db.env") });
 
 const db_cluster = process.env.DB_CLUSTER;

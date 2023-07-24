@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>ECONO SHOP - <%= title %></title>
-    <link rel="stylesheet" href="./econoshop2.css">
+    <title>ECONO SHOP - <%= title%></title>
+    <link rel="stylesheet" href="/css/econoshop.css">
 </head>
 <body>
     <header>Econo Shop</header>
@@ -21,16 +21,14 @@
         <div class="event">행사</div>
     </nav>
     <a class="btn-write" href="/create"> 새 글 작성하기 ></a>
-    <section>
-        <form action="/create_process" method="post">
-            <p><input class="post-title" type="text" name="title" placeholder="제목"></p>
-            <p><input class="post-price" type="text" name="price" placeholder="가격"></p>
-            <p>
-                <textarea class="post-description" name="description" placeholder="상품 설명"></textarea>
-            </p>
-            <p>
-                <input class="post-button" type="submit" value="글 등록하기">
-            </p>
+    <section class="write-box">
+        <p class="view-title"><%= title %></p>
+        <p class="view-price"><%= price %></p>
+        <p class="view-description"><%= description %></p>
+        <a class="update-button" href="/update?id=<%=title%>">글 수정하기</a><a class="view-button" href="/fleaMarket">상품 목록</a>
+        <form action="delete_process" method="post">
+            <input type="hidden" name="id" value="<%=title%>">
+            <input class="delete-button" type="submit" value="글 삭제하기">
         </form>
     </section>
 </body>
