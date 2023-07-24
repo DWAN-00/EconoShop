@@ -18,6 +18,7 @@
             <a class="mypage" href="/mypage">마이페이지</a>
             <div class="line2"></div>
             <% if (userSession) { %>
+                <p class="session-name"><%= userSession.name %> 회원님</p>
                 <a class="login" href="/logout">로그아웃</a>
               <% } else { %>
                 <a class="login" href="/login">로그인</a>
@@ -31,64 +32,12 @@
         </nav>
         <section>
             <div><span class="recommend-block">추천상품</span></div>
-            <div class="event-block"></div>
-            <div id = "product-block">
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/patrick.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">사과</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/apple.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">스폰지밥</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/patrick.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">뚱이</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/apple.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">사과</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/spongebob.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">스폰지밥</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/patrick.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">뚱이</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
+            <div class="event-block">
+                <img class="event-img" src="../img/event.png">
+            </div>
+            <div id="product-block">
             </div>
         </section>
-        <script src="/js/econoshop.js"></script>
+        <script src="/js/domain/econoshop.js"></script>
     </body>
 </html>

@@ -21,7 +21,7 @@ function loginCheck(req, res, next) {
 router.use(
   session({
     secret: db_secret,
-    resave: false,
+    resave: true,
     saveUninitialized: false,
     //store: MongoStore.create({ mongoUrl: db_url }),
   })
@@ -78,12 +78,14 @@ passport.use(
 );
 
 router.post("/signup", (req, res) => {
+  let name = req.body.name;
   let id = req.body.id;
   let pw = req.body.pw;
   let pwr = req.body.pwr;
   let email = req.body.email;
   let semester = req.body.semester;
   const memberPost = new member({
+    name: name,
     id: id,
     pw: pw,
     pwr: pwr,

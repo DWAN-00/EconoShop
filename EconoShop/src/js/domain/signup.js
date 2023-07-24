@@ -1,3 +1,4 @@
+const inputName = document.querySelector(".input-name");
 const inputId = document.querySelector(".input-id");
 const inputPw = document.querySelector(".input-pw");
 const inputPwr = document.querySelector(".input-pwrepeat");
@@ -15,6 +16,11 @@ function inputIsEmpty(inputElement, invalideCheckElement) {
     inputElement.classList.remove("input-alert");
     invalideCheckElement.classList.remove("invalid-visible");
   }
+}
+
+function inputNameAlert(event) {
+  const nameInvalidCheck = document.querySelector(".name-invalid-check");
+  inputIsEmpty(inputName, nameInvalidCheck, () => inputName.value === "");
 }
 
 function inputIdAlert(event) {
@@ -60,7 +66,7 @@ function inputSemesterAlert(event) {
     () => inputSemester.value === ""
   );
 }
-
+inputForm.addEventListener("submit", inputNameAlert);
 inputForm.addEventListener("submit", inputIdAlert);
 inputForm.addEventListener("submit", inputPwAlert);
 inputForm.addEventListener("submit", inputPwrAlert);

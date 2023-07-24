@@ -2,7 +2,11 @@
 <section class="section-info">
     <form action="/mypage" class="user-info" method="post">
         <div class="user-s id">
-            <h2><%= userSession.id %></h2><h4 class="user-semester">에코노베이션 <%= userSession.semester %>기</h4>
+            <h2><%= userSession.name %></h2><h4 class="user-semester">에코노베이션 <%= userSession.semester %>기</h4>
+        </div>
+        <div class="user-s id">
+            <p><%= userSession.id %></p>
+            <span class="user-border"></span>
         </div>
         <div class="user-s email">
             <p><%= userSession.email %></p>

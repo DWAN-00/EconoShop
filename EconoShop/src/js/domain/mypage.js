@@ -52,3 +52,69 @@ historyBtn.addEventListener("click", () => {
   flag = 2;
   renderPage();
 });
+
+const cartItems = [
+  {
+    name: "티셔츠1",
+    count: 1,
+    imageSrc: "../uploads/1689247659464.png",
+    price: 10000,
+  },
+  {
+    name: "티셔츠2",
+    count: 1,
+    imageSrc: "../uploads/1689247659464.png",
+    price: 20000,
+  },
+];
+
+const cartList = document.querySelector(".cart-list");
+
+const cartHTML = cartItems.map(
+  (item) => `
+    <hr class="division-line">
+    <li class="cart-box">
+        <div class="cart-goods-box">
+            <p class="cart-goods-name">${item.name}</p>
+            <p class="cart-goods-cnt">${item.count}개</p>
+        </div>
+        <div class="cart-goods-img">
+            <img src="${item.imageSrc}" loading="lazy">       
+        </div>
+        <div class="cnt-cntrl">
+            <div class="cnt-now"></div>
+            <div class="cnt-up-btn"><img class="cnt-img" src="../img/cnt.png"></div>
+            <div class="cnt-down-btn"><img class="cnt-img-down" src="../img/cnt.png"></div>
+        </div>
+        <div class="price-box">
+          <p class="price">${item.price}원</p>
+        </div>
+    </li>
+  `
+);
+
+cartList.innerHTML = cartHTML.join("");
+
+const cntUpButtons = document.querySelectorAll(".cnt-up-btn");
+const cntDownButtons = document.querySelectorAll(".cnt-down-btn");
+
+function updateItemCount(index, count) {
+  const goodsCnt = cartList.querySelectorAll(".cnt-now")[index];
+  goodsCnt.textContent = count;
+  cartItems[index].count = count;
+}
+
+cntUpButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    let cnt = cartItems[index].count + 1;
+    updateItemCount(index, cnt);
+  });
+});
+
+cntDownButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    let cnt = cartItems[index].count - 1;
+    if (cnt < 0) cnt = 0;
+    updateItemCount(index, cnt);
+  });
+});

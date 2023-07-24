@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const imageSchema = new mongoose.Schema(
+const postsSchema = new mongoose.Schema(
   {
     uploader: String,
     uploadDate: Date,
     fileName: String,
   },
-  { collection: "images" }
+  { collection: "posts" }
 );
 
-module.exports = images;
+module.exports = posts;
