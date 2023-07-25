@@ -11,23 +11,20 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", {userSession : req.user});
 });
 
 router.get("/event", (req, res) => {
-  res.render("event");
+  res.render("event", {userSession : req.user});
 });
 
 router.get("/goods", (req, res) => {
-  res.render("goods");
+  console.log(req.user);
+  res.render("goods", {userSession : req.user});
 });
 
 router.get("/groupBuy", (req, res) => {
-  res.render("groupBuy");
-});
-
-router.get("/board", (req, res) => {
-  res.render("board");
+  res.render("groupBuy", {userSession : req.user});
 });
 
 module.exports = router;

@@ -6,30 +6,37 @@
     <link rel="stylesheet" href="/css/econoshop.css">
 </head>
 <body>
-    <header>Econo Shop</header>
-    <nav class="nav1">
-        <div class="basket">장바구니</div>
-        <div class="line1"></div>
-        <div class="mypage">마이페이지</div>
-        <div class="line2"></div>
-        <div class="login">로그아웃</div>
-    </nav>
-    <nav class="nav2">
-        <div class="goods">굿즈</div>
-        <div class="groupbuy">공동구매</div>
-        <div class="fleamarket" style="color:#1369ea">플리마켓</div>
-        <div class="event">행사</div>
-    </nav>
-    <a class="btn-write" href="/create"> 새 글 작성하기 ></a>
-    <section class="write-box">
-        <p class="view-title"><%= title %></p>
-        <p class="view-price"><%= price %></p>
-        <p class="view-description"><%= description %></p>
-        <a class="update-button" href="/update?id=<%=title%>">글 수정하기</a><a class="view-button" href="/fleaMarket">상품 목록</a>
-        <form action="delete_process" method="post">
-            <input type="hidden" name="id" value="<%=title%>">
-            <input class="delete-button" type="submit" value="글 삭제하기">
-        </form>
-    </section>
+    <% if ( userSession ) { %>
+        <header><a href="/">Econo Shop</a></header>
+        <nav class="nav1">
+            <div class="basket">장바구니</div>
+            <div class="line1"></div>
+            <div class="mypage">마이페이지</div>
+            <div class="line2"></div>
+            <div class="login">로그아웃</div>
+        </nav>
+        <nav class="nav2">
+            <div class="goods">굿즈</div>
+            <div class="groupbuy">공동구매</div>
+            <div class="fleamarket" style="color:#1369ea">플리마켓</div>
+            <div class="event">행사</div>
+        </nav>
+        <a class="btn-write" href="/create"> 새 글 작성하기 ></a>
+        <section class="write-box">
+            <p class="view-title"><%= title %></p>
+            <p class="view-price"><%= price %></p>
+            <p class="view-description"><%= description %></p>
+            <a class="update-button" href="/update?id=<%=title%>">글 수정하기</a><a class="view-button" href="/fleaMarket">상품 목록</a>
+            <form action="delete_process" method="post">
+                <input type="hidden" name="id" value="<%=title%>">
+                <input class="delete-button" type="submit" value="글 삭제하기">
+            </form>
+        </section>
+    <% } else { %>
+        <script>
+            alert("로그인이 필요한 페이지입니다.");
+            window.location.href="/login"
+        </script>
+    <% } %>
 </body>
 </html>

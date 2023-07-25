@@ -1,6 +1,6 @@
 @import url('https://webfontworld.github.io/pretendard/Pretendard.css');
 
-header{
+header a{
     position: absolute;
     width: 18.75rem;
     height: 2.875rem;
@@ -11,6 +11,7 @@ header{
     font-size: 2.875rem; 
     line-height: 3.5rem;
     color :#1369ea;
+    text-decoration: none;
 }
 
 .login{
@@ -25,6 +26,7 @@ header{
     line-height: 1.125rem;
     color: #000000;
     text-align: center;
+    text-decoration: none;
 }
 
 .mypage{
@@ -39,6 +41,7 @@ header{
     line-height: 1.125rem;
     color: #000000;
     text-align: center;
+    text-decoration: none;
 }
 
 .basket{
@@ -53,6 +56,7 @@ header{
     line-height: 1.125rem;
     color: #000000;
     text-align: center;
+    text-decoration: none;
 }
 
 .line1{
@@ -89,6 +93,7 @@ header{
     font-size: 1.25rem;
     line-height: 1.5rem;
     color: #000000;
+    text-decoration: none;
 }
 
 .groupbuy{
@@ -103,6 +108,7 @@ header{
     font-size: 1.25rem;
     line-height: 1.5rem;
     color: #000000;
+    text-decoration: none;
 }
 
 .fleamarket{
@@ -117,6 +123,7 @@ header{
     font-size: 1.25rem;
     line-height: 1.5rem;
     color: #000000;
+    text-decoration: none;
 }
 
 .event{
@@ -131,6 +138,7 @@ header{
     font-size: 1.25rem;
     line-height: 1.5rem;
     color: #000000;
+    text-decoration: none;
 }
 
 .nav2 a:hover{

@@ -10,30 +10,37 @@
     <title>econoshop-mypage</title>
 </head>
 <body>
-    <div class="main-titleBox">
-        <a class="main-title" href="/">Econo Shop</a>
-    </div>
-    <h1 class="page-title">마이페이지</h1>
-    <!-- link -->
-    <div class="sub-menu">
-      <a class="a to-main" href="/logout">로그아웃</a>
-      <a class="a to-cart" href="/cart">장바구니</a>
-    </div>
-    <div class="mypage-content">
-        <div class="user-log">
-            <div class="user-log info">
-                <a class="info-a">회원정보</a>
-            </div>
-            <div class="user-log cart" >
-                <a class="cart-a">장바구니</a>
-            </div>
-            <div class="user-log history">
-                <a class="history-a">주문내역</a>
-            </div>
+    <% if ( userSession ) { %>
+        <div class="main-titleBox">
+            <a class="main-title" href="/">Econo Shop</a>
         </div>
-    <%- include ('myInfo')%>
-    <%- include ('myCart')%>
-    <%- include ('myHistory')%>
-<script src="js/domain/mypage.js"></script>
+        <h1 class="page-title">마이페이지</h1>
+        <!-- link -->
+        <div class="sub-menu">
+        <a class="a to-main" href="/logout">로그아웃</a>
+        <a class="a to-cart" href="/cart">장바구니</a>
+        </div>
+        <div class="mypage-content">
+            <div class="user-log">
+                <div class="user-log info">
+                    <a class="info-a">회원정보</a>
+                </div>
+                <div class="user-log cart" >
+                    <a class="cart-a">장바구니</a>
+                </div>
+                <div class="user-log history">
+                    <a class="history-a">주문내역</a>
+                </div>
+            </div>
+        <%- include ('myInfo')%>
+        <%- include ('myCart')%>
+        <%- include ('myHistory')%>
+    <script src="js/domain/mypage.js"></script>
+    <% } else { %>
+        <script>
+            alert("로그인이 필요한 페이지입니다.");
+            window.location.href="/login"
+        </script>
+    <% } %>
 </body>
 </html>

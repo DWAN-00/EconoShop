@@ -7,84 +7,90 @@
         <link rel="stylesheet" href = "/css/econoshop.css">
     </head>
     <body>
-        <header>Econo Shop</header>
-        <nav class="nav1">
-            <a class="basket" href="/cart">장바구니</a>
-            <div class="line1"></div>
-            <a class="mypage" href="/mypage">마이페이지</a>
-            <div class="line2"></div>
-            <% if (userSession) { %>
-                <p class="session-name"><%= userSession.name %> 회원님</p>
-                <a class="login" href="/logout">로그아웃</a>
-              <% } else { %>
-                <a class="login" href="/login">로그인</a>
-              <% } %>
-        </nav>
-        <nav class="nav2">
-            <a class="goods" href="/goods">굿즈</a>
-            <a class="groupbuy" href="/groupBuy">공동구매</a>
-            <a class="fleamarket" href="/fleaMarket">플리마켓</a>
-            <a class="event" href="/event">행사</a>
-        </nav>
-        <a class="btn-write" href="/board"> 새 글 작성하기 ></a>
-        <section>
-            <div id = "product-block" style = "top: 322px">
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/apple.jpg">
+        <% if ( userSession ) { %>
+            <header><a href="/">Econo Shop</a></header>
+            <nav class="nav1">
+                <a class="basket" href="/cart">장바구니</a>
+                <div class="line1"></div>
+                <a class="mypage" href="/mypage">마이페이지</a>
+                <div class="line2"></div>
+                <% if (userSession) { %>
+                    <p class="session-name"><%= userSession.name %> 회원님</p>
+                    <a class="login" href="/logout">로그아웃</a>
+                <% } else { %>
+                    <a class="login" href="/login">로그인</a>
+                <% } %>
+            </nav>
+            <nav class="nav2">
+                <a class="goods" href="/goods">굿즈</a>
+                <a class="groupbuy" href="/groupBuy">공동구매</a>
+                <a class="fleamarket" href="/fleaMarket">플리마켓</a>
+                <a class="event" href="/event">행사</a>
+            </nav>
+            <section>
+                <div id = "product-block" style = "top: 322px">
+                    <div class="product-div">
+                        <div>
+                            <img class="product-img" src="../img/apple.jpg">
+                        </div>
+                        <div class="contents">
+                            <span class="name">사과</span>
+                            <span class="price">30,000원</span>
+                        </div>
                     </div>
-                    <div class="contents">
-                        <span class="name">사과</span>
-                        <span class="price">30,000원</span>
+                    <div class="product-div">
+                        <div>
+                            <img class="product-img" src="../img/spongebob.jpg">
+                        </div>
+                        <div class="contents">
+                            <span class="name">스폰지밥</span>
+                            <span class="price">30,000원</span>
+                        </div>
+                    </div>
+                    <div class="product-div">
+                        <div>
+                            <img class="product-img" src="../img/patrick.jpg">
+                        </div>
+                        <div class="contents">
+                            <span class="name">뚱이</span>
+                            <span class="price">30,000원</span>
+                        </div>
+                    </div>
+                    <div class="product-div">
+                        <div>
+                            <img class="product-img" src="../img/apple.jpg">
+                        </div>
+                        <div class="contents">
+                            <span class="name">사과</span>
+                            <span class="price">30,000원</span>
+                        </div>
+                    </div>
+                    <div class="product-div">
+                        <div>
+                            <img class="product-img" src="../img/spongebob.jpg">
+                        </div>
+                        <div class="contents">
+                            <span class="name">스폰지밥</span>
+                            <span class="price">30,000원</span>
+                        </div>
+                    </div>
+                    <div class="product-div">
+                        <div>
+                            <img class="product-img" src="../img/patrick.jpg">
+                        </div>
+                        <div class="contents">
+                            <span class="name">뚱이</span>
+                            <span class="price">30,000원</span>
+                        </div>
                     </div>
                 </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/spongebob.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">스폰지밥</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/patrick.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">뚱이</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/apple.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">사과</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/spongebob.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">스폰지밥</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-                <div class="product-div">
-                    <div>
-                        <img class="product-img" src="../img/patrick.jpg">
-                    </div>
-                    <div class="contents">
-                        <span class="name">뚱이</span>
-                        <span class="price">30,000원</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <script src="../../src/js/econoshop.js"></script>
+            </section>
+            <script src="../../src/js/econoshop.js"></script>
+        <% } else { %>
+            <script>
+                alert("로그인이 필요한 페이지입니다.");
+                window.location.href="/login"
+            </script>
+        <% } %>
     </body>
 </html>
