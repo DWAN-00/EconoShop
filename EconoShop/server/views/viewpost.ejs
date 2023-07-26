@@ -32,7 +32,7 @@
                 </div>
               <% } %>
             <a class="update-button" href="/update?id=<%=title%>">글 수정하기</a><a class="view-button" href="/fleaMarket">상품 목록</a>
-            <form action="delete_process" method="post">
+            <form action="/delete_process" method="post">
                 <input type="hidden" name="id" value="<%=title%>">
                 <input class="delete-button" type="submit" value="글 삭제하기">
             </form>

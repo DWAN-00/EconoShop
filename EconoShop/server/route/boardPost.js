@@ -6,6 +6,7 @@ const posts = require("../posts");
 const qs = require("querystring");
 const mongoose = require("mongoose");
 const multer = require("multer");
+const { ObjectId } = require("mongoose").Types;
 require("dotenv").config({ path: path.join(__dirname, "../db.env") });
 const upload = multer({
   storage: multer.diskStorage({
@@ -134,55 +135,72 @@ router.get("/update", (req, res) => {
 });
 
 router.post("/update_process", upload.array("img", 3), (req, res) => {
-  const { _id, title, price, description } = req.body;
-  const ObjectId = mongoose.Types.ObjectId();
-  // 이미지 파일이 전송되지 않았을 경우를 처리하는 로직 추가
-  const imgOrgName = req.files
-    ? req.files.map((file) => file.originalname)
-    : [];
-  const imgDateName = req.files ? req.files.map((file) => file.filename) : [];
+  const { id, title, price, description } = req.body;
 
-  posts.findByIdAndUpdate(
-    ObjectId, // 기존의 _id 사용
-    {
-      title,
-      price,
-      description,
-      imgOrgName: imgOrgName,
-      imgDateName: imgDateName,
-    },
-    { new: true },
-    (err, updatedPost) => {
-      if (err) {
-        console.error("게시글 업데이트 오류:", err);
-        res.status(500).send("서버 오류");
+  posts.findOne({ title: id }, (err, foundPost) => {
+    if (err) {
+      console.error("게시글 조회 오류:", err);
+      console.log(id);
+      res.status(500).send("서버 오류");
+    } else {
+      if (!foundPost) {
+        console.error("게시글이 존재하지 않습니다:", id);
+        res.status(404).send("게시글이 존재하지 않습니다.");
       } else {
-        if (!updatedPost) {
-          res.status(404).send("게시글이 존재하지 않습니다.");
-        } else {
-          res.redirect("/fleaMarket");
-        }
+        const postId = foundPost._id;
+
+        const imgOrgName = req.files
+          ? req.files.map((file) => file.originalname)
+          : [];
+        const imgDateName = req.files
+          ? req.files.map((file) => file.filename)
+          : [];
+
+        posts.findByIdAndUpdate(
+          postId,
+          {
+            title,
+            price,
+            description,
+            imgOrgName,
+            imgDateName,
+          },
+          { new: true },
+          (err, updatedPost) => {
+            if (err) {
+              console.error("게시글 업데이트 오류:", err);
+              res.status(500).send("서버 오류");
+            } else {
+              if (!updatedPost) {
+                console.error("게시글이 존재하지 않습니다:", id);
+                res.status(404).send("게시글이 존재하지 않습니다.");
+              } else {
+                res.redirect(`/fleaMarket?id=${encodeURIComponent(title)}`);
+              }
+            }
+          }
+        );
       }
     }
-  );
+  });
 });
 
 router.post("/delete_process", (req, res) => {
-  let body = "";
-  req.on("data", (data) => {
-    body += data;
-  });
+  const postId = req.body.id;
 
-  req.on("end", () => {
-    const post = qs.parse(body);
-    const id = post.id;
-
-    readData((data) => {
-      const filteredData = data.filter((post) => post.title !== id);
-      writeData(filteredData, () => {
+  posts.findOneAndRemove({ title: postId }, (err, deletedPost) => {
+    if (err) {
+      console.error("게시글 삭제 오류:", err);
+      res.status(500).send("서버 오류");
+    } else {
+      if (!deletedPost) {
+        console.error("게시글이 존재하지 않습니다:", postId);
+        res.status(404).send("게시글이 존재하지 않습니다.");
+      } else {
+        console.log("게시글 삭제 완료:", deletedPost);
         res.redirect("/fleaMarket");
-      });
-    });
+      }
+    }
   });
 });
 
