@@ -148,14 +148,26 @@ header a{
 
 .event-block {
     position: absolute;
+    left: 0px;
+    top: 254px;
+}
+
+#event-block {
+    position: absolute;
     width: 90rem;
-    left: 0rem;
-    top: 15.875rem; 
-    background-image: url("");
-    background-repeat: no-repeat; 
-    background-position: center; 
-    background-size: cover;
-    background-color: #EDEDED;
+    left: 6.25rem;
+    top: 17.875rem; 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.event-div{
+    margin-bottom: 1rem;
+}
+
+.event-img {
+    width: 90rem;
+    height: 22.5rem;
 }
 
 .recommend-block {
@@ -199,17 +211,37 @@ header a{
     padding: 0.5rem;
 }
 
-.content-title a {
+.name {
     font-size: 1.25rem; 
     font-weight: 700;
     color:#000000;
     text-decoration: none;
 }
+
+.price {
+    font-size: 0.875rem; 
+    color:#424242;
+    text-decoration: none;
+}
+
+.content-title a { 
+    font-size: 1.25rem; 
+    font-weight: 700;
+    color:#000000;
+    text-decoration: none;
+}
+
 .price a {
     font-size: 0.875rem; 
     color:#424242;
     text-decoration: none;
 }
+
+.img-cart-add {
+    width: 2rem;
+    height: 2rem;
+}
+
 .btn-write {
     position:absolute;
     color: #1369ea;

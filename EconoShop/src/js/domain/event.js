@@ -1,25 +1,24 @@
-const products = [
-    { name: "Econovation Summer Dev", price: "30,000원", image: "../img/EventBlock" },
-    { name: "스폰지밥", price: "30,000원", image: "../../../../public/img/spongebob.jpg" },
-    { name: "뚱이", price: "30,000원", image: "../../../../public/img/patrick.jpg" },
+const events = [
+    { name: "Econovation Summer Dev", date: "7월 28일", image: "../img/EventBlock.png" },
+    { name: "Econo Shop booth event", date: "7월 28일", image: "../img/boothevent.png" },
   ];
   
-  const productblock = document.querySelector("#product-block");
+  const eventblock = document.querySelector("#event-block");
   
-  const productHTML = products.map(
-    (product) => `
-    <div class="product-div">
+  const eventHTML = events.map(
+    (event) => `
+    <div class="event-div">
       <div>
-        <img class="product-img" src="${product.image}" alt="${product.name}">
+        <img class="event-img" src="${event.image}" alt="${event.name}">
       </div>
       <div class="contents">
-        <span class="name">${product.name}</span>
-        <span class="price">${product.price}</span>
+        <span class="name">${event.name}</span>
+        <span class="date">${event.date}</span>
       </div>
     </div>
   `
   );
-  console.log(productHTML);
-  const allProductsHTML = productHTML.join("");
-  console.log(allProductsHTML);
-  productblock.innerHTML = allProductsHTML;
+  console.log(eventHTML);
+  const alleventsHTML = eventHTML.join("");
+  console.log(alleventsHTML);
+  eventblock.innerHTML = alleventsHTML;

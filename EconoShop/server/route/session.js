@@ -127,6 +127,23 @@ router.get("/mypage", loginCheck, (req, res) => {
   res.render("mypage", { userSession: req.user });
 });
 
+router.get("/login", (req, res) => {
+  res.render("login", {userSession : req.user});
+});
+
+router.get("/event", (req, res) => {
+  res.render("event", {userSession : req.user});
+});
+
+router.get("/goods", (req, res) => {
+  console.log(req.user);
+  res.render("goods", {userSession : req.user});
+});
+
+router.get("/groupBuy", (req, res) => {
+  res.render("groupBuy", {userSession : req.user});
+});
+
 router.get("/logout", (req, res) => {
   req.logout(() => {
     req.session.destroy(function (err) {

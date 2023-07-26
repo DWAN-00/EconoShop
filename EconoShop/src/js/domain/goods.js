@@ -4,6 +4,7 @@ const products = [
   { name: "뚱이", price: "30,000원", image: "../img/patrick.jpg" },
 ];
 
+const cartpath = '../'
 const productblock = document.querySelector("#product-block");
 
 const productHTML = products.map(
@@ -16,7 +17,9 @@ const productHTML = products.map(
       <span class="name">${product.name}</span>
       <span class="price">${product.price}</span>
     </div>
-  </div>
+    <button class="cart-button"> 
+      <img class="img-cart-add" src="../img/shopping-cart-add">
+    </button>
 `
 );
 console.log(productHTML);
