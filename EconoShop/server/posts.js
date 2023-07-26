@@ -9,9 +9,9 @@ const boardSchema = new mongoose.Schema(
     imgOrgName: [{ type: String }],
     imgDateName: [{ type: String }],
   },
-  { collection: "board" }
+  { collection: "posts" }
 );
 
-const board = mongoose.model("board", boardSchema);
+const posts = mongoose.model("posts", boardSchema);
 
-module.exports = board;
+module.exports = posts;

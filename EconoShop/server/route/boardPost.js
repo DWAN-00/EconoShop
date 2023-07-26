@@ -2,11 +2,10 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const url = require("url");
-const board = require("../posts");
+const posts = require("../posts");
 const qs = require("querystring");
 const mongoose = require("mongoose");
 const multer = require("multer");
-const ObjectId = require("mongodb").ObjectId;
 require("dotenv").config({ path: path.join(__dirname, "../db.env") });
 const upload = multer({
   storage: multer.diskStorage({
@@ -24,7 +23,7 @@ router.get("/fleaMarket", (req, res) => {
 
   if (queryTitle) {
     // queryTitle이 존재할 경우, 해당 글을 데이터베이스에서 찾습니다.
-    board.findOne({ title: queryTitle }, (err, foundPost) => {
+    posts.findOne({ title: queryTitle }, (err, foundPost) => {
       if (err) {
         console.error("게시글 조회 오류:", err);
         res.status(500).send("서버 오류");
@@ -49,7 +48,7 @@ router.get("/fleaMarket", (req, res) => {
       }
     });
   } else {
-    board.find({}, (err, data) => {
+    posts.find({}, (err, data) => {
       if (err) {
         console.error("게시글 조회 오류:", err);
         res.status(500).send("서버 오류");
@@ -81,7 +80,7 @@ router.post("/create_process", upload.array("img", 3), (req, res) => {
   const imgOrgName = req.files.map((file) => file.originalname);
   const imgDateName = req.files.map((file) => file.filename);
 
-  const newPost = new board({
+  const newPost = new posts({
     title: title,
     price: price,
     description: description,
@@ -106,7 +105,7 @@ router.get("/update", (req, res) => {
   const queryTitle = req.query.id;
 
   if (queryTitle) {
-    board.findOne({ title: queryTitle }, (err, foundPost) => {
+    posts.findOne({ title: queryTitle }, (err, foundPost) => {
       if (err) {
         console.error("게시글 조회 오류:", err);
         res.status(500).send("서버 오류");
@@ -135,14 +134,22 @@ router.get("/update", (req, res) => {
 });
 
 router.post("/update_process", upload.array("img", 3), (req, res) => {
-  const { ObjectId, title, price, description } = req.body;
+  const { _id, title, price, description } = req.body;
+  const ObjectId = mongoose.Types.ObjectId();
+  // 이미지 파일이 전송되지 않았을 경우를 처리하는 로직 추가
+  const imgOrgName = req.files
+    ? req.files.map((file) => file.originalname)
+    : [];
+  const imgDateName = req.files ? req.files.map((file) => file.filename) : [];
 
-  board.findByIdAndUpdate(
-    ObjectId,
+  posts.findByIdAndUpdate(
+    ObjectId, // 기존의 _id 사용
     {
       title,
       price,
       description,
+      imgOrgName: imgOrgName,
+      imgDateName: imgDateName,
     },
     { new: true },
     (err, updatedPost) => {
@@ -153,7 +160,7 @@ router.post("/update_process", upload.array("img", 3), (req, res) => {
         if (!updatedPost) {
           res.status(404).send("게시글이 존재하지 않습니다.");
         } else {
-          res.redirect(`/?id=${encodeURIComponent(title)}`);
+          res.redirect("/fleaMarket");
         }
       }
     }

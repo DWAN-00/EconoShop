@@ -14,7 +14,7 @@
             <a class="mypage" href="/mypage">마이페이지</a>
             <div class="line2"></div>
             <% if (userSession) { %>
-                <p class="session-name"><%= userSession.name %> 회원님</p>
+                <p class="session-name"><%= userSession.name %> 회원님 안녕하세요!</p>
                 <a class="login" href="/logout">로그아웃</a>
               <% } else { %>
                 <a class="login" href="/login">로그인</a>
