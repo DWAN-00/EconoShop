@@ -14,20 +14,4 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/event", (req, res) => {
-  res.render("event");
-});
-
-router.get("/goods", (req, res) => {
-  res.render("goods");
-});
-
-router.get("/groupBuy", (req, res) => {
-  res.render("groupBuy");
-});
-
-router.get("/board", (req, res) => {
-  res.render("board");
-});
-
 module.exports = router;

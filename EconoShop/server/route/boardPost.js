@@ -6,7 +6,18 @@ const board = require("../posts");
 const qs = require("querystring");
 const mongoose = require("mongoose");
 const multer = require("multer");
+const ObjectId = require("mongodb").ObjectId;
 require("dotenv").config({ path: path.join(__dirname, "../db.env") });
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "../public/uploads/");
+    },
+    filename: function (req, file, cb) {
+      cb(null, new Date().valueOf() + path.extname(file.originalname));
+    },
+  }),
+});
 
 router.get("/fleaMarket", (req, res) => {
   const queryTitle = req.query.id;
@@ -23,13 +34,14 @@ router.get("/fleaMarket", (req, res) => {
           const description = foundPost.description;
           const price = foundPost.price;
           const imgDateName = foundPost.imgDateName;
-          const firstImage = imgDateName[0];
+          const uploader = foundPost.uploader;
           res.render("viewpost", {
             title,
             description,
             price,
-            imgDateName: firstImage,
+            imgDateName: imgDateName,
             userSession: req.user,
+            uploader,
           });
         } else {
           res.status(404).send("게시글이 존재하지 않습니다.");
@@ -64,17 +76,6 @@ router.get("/create", (req, res) => {
   res.render("create", { title, userSession: req.user });
 });
 
-const upload = multer({
-  storage: multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, "../public/uploads/");
-    },
-    filename: function (req, file, cb) {
-      cb(null, new Date().valueOf() + path.extname(file.originalname));
-    },
-  }),
-});
-
 router.post("/create_process", upload.array("img", 3), (req, res) => {
   const { title, price, description } = req.body;
   const imgOrgName = req.files.map((file) => file.originalname);
@@ -101,35 +102,62 @@ router.post("/create_process", upload.array("img", 3), (req, res) => {
     });
 });
 
-router.post("/update_process", (req, res) => {
-  let body = "";
-  req.on("data", (data) => {
-    body += data;
-  });
+router.get("/update", (req, res) => {
+  const queryTitle = req.query.id;
 
-  req.on("end", () => {
-    const post = qs.parse(body);
-    const id = post.id;
-    const title = post.title;
-    const price = post.price;
-    const description = post.description;
+  if (queryTitle) {
+    board.findOne({ title: queryTitle }, (err, foundPost) => {
+      if (err) {
+        console.error("게시글 조회 오류:", err);
+        res.status(500).send("서버 오류");
+      } else {
+        if (foundPost) {
+          const title = foundPost.title;
+          const description = foundPost.description;
+          const price = foundPost.price;
+          const imgDateName = foundPost.imgDateName;
 
-    readData((data) => {
-      const targetPost = data.find((post) => post.title === id);
-      if (!targetPost) {
-        res.status(404).end("Not Found");
-        return;
+          res.render("update", {
+            title,
+            description,
+            price,
+            imgDateName,
+            userSession: req.user,
+          });
+        } else {
+          res.status(404).send("게시글이 존재하지 않습니다.");
+        }
       }
-
-      targetPost.title = title;
-      targetPost.price = price;
-      targetPost.description = description;
-
-      writeData(data, () => {
-        res.redirect(`/?id=${encodeURIComponent(title)}`);
-      });
     });
-  });
+  } else {
+    res.status(400).send("잘못된 요청입니다. 글 ID를 제대로 전달해주세요.");
+  }
+});
+
+router.post("/update_process", upload.array("img", 3), (req, res) => {
+  const { ObjectId, title, price, description } = req.body;
+
+  board.findByIdAndUpdate(
+    ObjectId,
+    {
+      title,
+      price,
+      description,
+    },
+    { new: true },
+    (err, updatedPost) => {
+      if (err) {
+        console.error("게시글 업데이트 오류:", err);
+        res.status(500).send("서버 오류");
+      } else {
+        if (!updatedPost) {
+          res.status(404).send("게시글이 존재하지 않습니다.");
+        } else {
+          res.redirect(`/?id=${encodeURIComponent(title)}`);
+        }
+      }
+    }
+  );
 });
 
 router.post("/delete_process", (req, res) => {

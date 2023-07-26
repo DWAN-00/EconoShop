@@ -6,41 +6,48 @@
     <link rel="stylesheet" href="/css/econoshop.css">
 </head>
 <body>
-    <header>Econo Shop</header>
-    <nav class="nav1">
-        <a class="basket" href="/cart">장바구니</a>
-        <div class="line1"></div>
-        <a class="mypage" href="/mypage">마이페이지</a>
-        <div class="line2"></div>
-        <% if (userSession) { %>
-            <p class="session-name"><%= userSession.name %> 회원님</p>
-            <a class="login" href="/logout">로그아웃</a>
-          <% } else { %>
-            <a class="login" href="/login">로그인</a>
-          <% } %>
-    </nav>
-    <nav class="nav2">
-        <div class="goods">굿즈</div>
-        <div class="groupbuy">공동구매</div>
-        <div class="fleamarket" style="color:#1369ea">플리마켓</div>
-        <div class="event">행사</div>
-    </nav>
-    <a class="btn-write" href="/create"> 새 글 작성하기 ></a>
-    <section>
-        <form class="post-form" action="/create_process" method="post" enctype=multipart/form-data>
-            <p><input class="post-title" type="text" name="title" placeholder="제목"></p>
-            <p><input class="post-price" type="text" name="price" placeholder="가격"></p>
-            <p>
-                <textarea class="post-description" name="description" placeholder="상품 설명"></textarea>
-            </p>
-            <div>
-                <label class="img-input-label" for="img-input"><img class="img-input-img" src="../img/upload.png"></label>
-                <input type="file" class="img-input" name="img" multiple accept="image/*">
-            </div>
-            <p>
-                <input class="post-button" type="submit" value="글 등록하기">
-            </p>
-        </form>
-    </section>
+    <% if ( userSession ) { %>
+        <header><a href="/">Econo Shop</a></header>
+        <nav class="nav1">
+            <a class="basket" href="/cart">장바구니</a>
+            <div class="line1"></div>
+            <a class="mypage" href="/mypage">마이페이지</a>
+            <div class="line2"></div>
+            <% if (userSession) { %>
+                <p class="session-name"><%= userSession.name %> 회원님</p>
+                <a class="login" href="/logout">로그아웃</a>
+            <% } else { %>
+                <a class="login" href="/login">로그인</a>
+            <% } %>
+        </nav>
+        <nav class="nav2">
+            <a class="goods" href="/goods">굿즈</a>
+            <a class="groupbuy" href="/groupbuy">공동구매</a>
+            <a class="fleamarket" href="/fleaMarket" style="color:#1369ea">플리마켓</a>
+            <a class="event" href="/event">행사</a>
+        </nav>
+        <a class="btn-write" href="/create"> 새 글 작성하기 ></a>
+        <section>
+            <form class="post-form" action="/create_process" method="post" enctype=multipart/form-data>
+                <p><input class="post-title" type="text" name="title" placeholder="제목"></p>
+                <p><input class="post-price" type="text" name="price" placeholder="가격"></p>
+                <p>
+                    <textarea class="post-description" name="description" placeholder="상품 설명"></textarea>
+                </p>
+                <div>
+                    <label class="img-input-label" for="img-input"><img class="img-input-img" src="../img/upload.png"></label>
+                    <input type="file" class="img-input" name="img" multiple accept="image/*">
+                </div>
+                <p>
+                    <input class="post-button" type="submit" value="글 등록하기">
+                </p>
+            </form>
+        </section>
+    <% } else { %>
+        <script>
+            alert("로그인이 필요한 페이지입니다.");
+            window.location.href="/login"
+        </script>
+    <% } %>
 </body>
 </html>

@@ -119,12 +119,24 @@ router.get("/", (req, res) => {
   res.render("main", { userSession: req.user });
 });
 
+router.get("/event", (req, res) => {
+  res.render("event", { userSession: req.user });
+});
+
+router.get("/groupBuy", (req, res) => {
+  res.render("groupBuy", { userSession: req.user });
+});
+
 router.get("/loginFail", (req, res) => {
   res.redirect("/login");
 });
 
 router.get("/mypage", loginCheck, (req, res) => {
   res.render("mypage", { userSession: req.user });
+});
+
+router.get("/goods", (req, res) => {
+  res.render("goods", { userSession: req.user });
 });
 
 router.get("/logout", (req, res) => {
