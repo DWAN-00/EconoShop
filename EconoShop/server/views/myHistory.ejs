@@ -1,0 +1,13 @@
+<% if ( userSession ) { %>
+    <section class="section-history">
+        <h3 class="sub-title">주문 내역</h3>
+        <form action="/mypage" class="user-cart" method="post">
+
+        </form>
+    </section>
+<% } else { %>
+    <script>
+        alert("로그인이 필요한 페이지입니다.");
+        window.location.href="/login"
+    </script>
+<% } %>

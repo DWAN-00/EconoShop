@@ -1,9 +1,11 @@
+const inputName = document.querySelector(".input-name");
 const inputId = document.querySelector(".input-id");
 const inputPw = document.querySelector(".input-pw");
 const inputPwr = document.querySelector(".input-pwrepeat");
 const inputEmail = document.querySelector(".input-email");
 const inputSemester = document.querySelector(".input-semester");
 const inputForm = document.querySelector(".input-form");
+
 //공백검사
 function inputIsEmpty(inputElement, invalideCheckElement) {
   if (inputElement.value == "") {
@@ -14,6 +16,11 @@ function inputIsEmpty(inputElement, invalideCheckElement) {
     inputElement.classList.remove("input-alert");
     invalideCheckElement.classList.remove("invalid-visible");
   }
+}
+
+function inputNameAlert(event) {
+  const nameInvalidCheck = document.querySelector(".name-invalid-check");
+  inputIsEmpty(inputName, nameInvalidCheck, () => inputName.value === "");
 }
 
 function inputIdAlert(event) {
@@ -59,13 +66,36 @@ function inputSemesterAlert(event) {
     () => inputSemester.value === ""
   );
 }
-
+inputForm.addEventListener("submit", inputNameAlert);
 inputForm.addEventListener("submit", inputIdAlert);
 inputForm.addEventListener("submit", inputPwAlert);
 inputForm.addEventListener("submit", inputPwrAlert);
 inputForm.addEventListener("submit", inputEmailAlert);
 inputForm.addEventListener("submit", inputSemesterAlert);
+//비동기 통신 : 나중에 추가
+inputForm.addEventListener("submit", () => {
+  const id = document.querySelector(".input-id").value;
+  const pw = document.querySelector(".input-pw").value;
+  const email = document.querySelector(".input-email").value;
+  const semester = document.querySelector(".input-semester").value;
 
-function goNewPage(newHref = "") {
-  window.location.href = newHref;
-}
+  $.ajax({
+    url: "/signup",
+    method: "POST",
+    contentType: "application/json",
+    data: JSON.stringify({
+      id: id,
+      pw: pw,
+      pwr: pwr,
+      email: email,
+      semester: semester,
+    }),
+  }).done((result) => {
+    if (result.code == 1) {
+      alert(id + " 님 환영합니다!");
+      location.href = "/login";
+    } else {
+      alert("이미 가입된 아이디입니다.");
+    }
+  });
+});

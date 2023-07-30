@@ -1,3 +1,16 @@
+@font-face {
+    font-family: Pretendard-Bold;
+    src: url(../font/Pretendard-Bold.otf);
+}
+@font-face {
+    font-family: Pretendard-semibold;
+    src: url(../font/Pretendard-SemiBold.otf);
+}
+@font-face {
+    font-family: Pretendard-Regular;
+    src: url(../font/Pretendard-Regular.otf);
+}
+
 body {
     margin-bottom: 50rem;
 }
@@ -60,7 +73,7 @@ button {
     appearance: none;
 }
 
-.input-id {
+.input-id, .input-name {
     font-size: 1.2rem;
     width: 34rem;
     margin: 1rem;
@@ -136,7 +149,7 @@ span {
     left: 5rem;
     color: #0066ff;
     font-size: 2.5rem;
-    font-weight: bold;
+    font-weight: 800;
     position: relative;
     cursor: pointer;
 }

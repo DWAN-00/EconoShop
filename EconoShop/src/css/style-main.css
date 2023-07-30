@@ -22,6 +22,11 @@ header {
     line-height: 56px;
     color :#1369ea;
 }
+
+.session-name {
+
+}
+
 .login{
     position: absolute;
     width: 70px;
@@ -35,6 +40,7 @@ header {
     color: #000000;
     text-align: center;
 }
+
 .mypage{
     position: absolute;
     width: 70px;
@@ -48,6 +54,7 @@ header {
     color: #000000;
     text-align: center;
 }
+
 .basket{
     position: absolute;
     width: 70px;
@@ -122,6 +129,7 @@ header {
 }
 .event{
     position: absolute;
+    overflow: hidden;
     width: 35px;
     height: 24px;
     left: 519px;
@@ -133,14 +141,14 @@ header {
     line-height: 24px;
     color: #000000;
 }
+
 .nav2 div:hover{
     color:#1369ea;
     text-decoration: underline;
 }
+
 .event-block {
     position: absolute;
-    width: 1440px;
-    height: 486px;
     left: 0px;
     top: 254px; 
     background-image: url("");
@@ -149,6 +157,7 @@ header {
     background-size: cover;
     background-color: #EDEDED;
 }
+
 .recommend-block {
     position: absolute;
     width: 111px;
@@ -162,6 +171,7 @@ header {
     line-height: 36px;
     color: #000000;
 }
+
 #product-block {
     position: absolute;
     width: 1260px;
@@ -171,25 +181,30 @@ header {
     display: flex;
     flex-wrap: wrap;
 }
+
 .product-img {
     width: 400px; 
     height: 400px; 
     background-color: #EDEDED; 
     margin-right: 20px;
 }
+
 .contents {
     display: flex; 
     flex-direction: 
     column; padding: 8px;
 }
+
 .name {
     font-size: 20px; 
     font-weight: 700;
 }
+
 .price {
     font-size: 14px; 
     color:#424242;
 }
+
 .btn-wirte{
     color: #1369ea;
     border: 1px solid #1369ea;

@@ -1,0 +1,15 @@
+<% if ( userSession ) { %>
+    <section class="section-cart">
+        <h3 class="sub-title">장바구니</h3>
+        <form action="/mypage" class="user-cart" method="post">
+            <ul class="cart-list">
+            </ul>
+            <hr class="division-line">
+        </form>
+    </section>
+<% } else { %>
+    <script>
+        alert("로그인이 필요한 페이지입니다.");
+        window.location.href="/login"
+    </script>
+<% } %>
